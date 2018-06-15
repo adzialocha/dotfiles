@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+###########################################
+# GENERAL PURPOSE EXPORTED VARS / FUNCTIONS
+###########################################
+
+# Where the magic happens.
+export DOTFILES=~/.dotfiles
+
+# Logging stuff.
+function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
+function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
+function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
+function e_arrow()    { echo -e " \033[1;34m➜\033[0m  $@"; }
+
+###########################################
+# INTERNAL DOTFILES "INIT" VARS / FUNCTIONS
+###########################################
+
+# Link files.
+function link_header() { e_header "Linking files into home directory"; }
+function link_test() {
+  [[ "$1" -ef "$2" ]] && echo "same file"
+}
+function link_do() {
+  e_success "Linking ~/$1."
+  ln -sf ${2#$HOME/} ~/
+}
+
+# Link config files.
+function config_header() { e_header "Linking files into ~/.config directory"; }
+function config_dest() {
+  echo "$HOME/.config/$base"
+}
+function config_do() {
+  e_success "Linking ~/.config/$1."
+  ln -sf ../${2#$HOME/} ~/.config/
+}
+
+# Copy, link, init etc.
+function do_stuff() {
+  local base dest
+  local files=($DOTFILES/$1/*)
+  [[ $(declare -f "$1_files") ]] && files=($($1_files "${files[@]}"))
+  # No files? abort.
+  if (( ${#files[@]} == 0 )); then return; fi
+  # Iterate over files.
+  for file in "${files[@]}"; do
+    base="$(basename $file)"
+    # Get dest path.
+    if [[ $(declare -f "$1_dest") ]]; then
+      dest="$("$1_dest" "$base")"
+    else
+      dest="$HOME/$base"
+    fi
+    # Do stuff.
+    "$1_do" "$base" "$file"
+    done
+}
+
+# Enough with the functions, let's do stuff.
+
+# Add binaries into the path
+[[ -d $DOTFILES/bin ]] && export PATH=$DOTFILES/bin:$PATH
+
+# Tweak file globbing.
+shopt -s dotglob
+shopt -s nullglob
+
+# Execute code for each file in these subdirectories.
+do_stuff link
+do_stuff config
+
+# All done!
+e_header "All done!"
