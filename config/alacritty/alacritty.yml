@@ -24,15 +24,15 @@ window:
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    x: 2
-    y: 2
+    x: 5
+    y: 5
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
   decorations: true
 
 # Display tabs using this many cells (changes require restart)
-tabspaces: 8
+tabspaces: 2
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -41,29 +41,26 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Menlo
-    # Style can be specified to pick a specific face.
-    # style: Regular
+    family: IBM Plex Mono
+    style: Regular
 
   # The bold font face
   bold:
-    family: Menlo
-    # Style can be specified to pick a specific face.
-    # style: Bold
+    family: IBM Plex Mono
+    style: SemiBold
 
   # The italic font face
   italic:
-    family: Menlo
-    # Style can be specified to pick a specific face.
-    # style: Italic
+    family: IBM Plex Mono Text
+    style: Italic
 
   # Point size of the font
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 0
+    x: 1
     y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
@@ -76,11 +73,11 @@ font:
   # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
   # screens and make reading text a little easier.
   scale_with_dpi: true
-
+  
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: true
+  use_thin_strokes: false
 
 # Should display the render timer
 render_timer: false
@@ -89,51 +86,39 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-# Colors (Tomorrow Night Bright)
+# Colors (Tomorrow Night)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
+    background: '0x1d1f21'
+    foreground: '0xc5c8c6'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
+    text: '0x1d1f21'
     cursor: '0xffffff'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
+    black:   '0x1d1f21'
+    red:     '0xcc6666'
+    green:   '0xb5bd68'
     yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
+    blue:    '0x81a2be'
+    magenta: '0xb294bb'
     cyan:    '0x70c0ba'
-    white:   '0xffffff'
+    white:   '0x373b41'
 
   # Bright colors
   bright:
     black:   '0x666666'
     red:     '0xff3334'
     green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
+    yellow:  '0xf0c674'
+    blue:    '0x81a2be'
     magenta: '0xb77ee0'
     cyan:    '0x54ced6'
-    white:   '0xffffff'
-
-  # Dim colors (Optional)
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
-
+    white:   '0x282a2e'
 
 # Visual Bell
 #

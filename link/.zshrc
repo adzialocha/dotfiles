@@ -13,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # ====================
 
 # Set name of the theme to load.
-ZSH_THEME="hyperzsh"
+ZSH_THEME="adz-custom"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.config/zsh-custom
