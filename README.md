@@ -35,7 +35,7 @@ font-ibm-plex     Terminal font
 ## Further steps
 
 ```
-rustup-init                           Install rust
+$ rustup-init                         Install rust
 https://github.com/jwilm/alacritty    Download and compile alacritty (Terminal)
 https://github.com/creationix/nvm     Install node (via nvm)
 ```
