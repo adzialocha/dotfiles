@@ -1,9 +1,17 @@
+function add_to_path {
+  case ":$PATH:" in
+    *":$1:"*) :;; # already there
+    *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
+  esac
+}
+
 # ====================
 # Basic path setup
 # ====================
 
 # Add dotfiles bin and brew path.
-export PATH=$HOME/.dotfiles/bin:/usr/local/bin:$PATH
+add_to_path $HOME/.dotfiles/bin
+add_to_path /usr/local/bin
 
 # Path to our oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -47,9 +55,14 @@ alias vim="nvim"
 # ==================
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+add_to_path $HOME/.cargo/bin
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+source /usr/local/bin/virtualenvwrapper.sh
