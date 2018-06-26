@@ -349,3 +349,14 @@ key_bindings:
   - { key: F10,      mods: Command, chars: "\x1b[21;3~"                  }
   - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
+  # For faster moving in the terminal
+  - { key: F,        mods: Alt,     chars: "\x1bf"                       }
+  - { key: B,        mods: Alt,     chars: "\x1bb"                       }
+  # Hack to bring back special symbols
+  - { key: L,        mods: Alt,     chars: "@"                           }
+  - { key: E,        mods: Alt,     chars: "€"                           }
+  - { key: Key7,     mods: Alt,     chars: "|"                           }
+  - { key: Key5,     mods: Alt,     chars: "["                           }
+  - { key: Key6,     mods: Alt,     chars: "]"                           }
+  - { key: Key8,     mods: Alt,     chars: "{"                           }
+  - { key: Key9,     mods: Alt,     chars: "}"                           }
