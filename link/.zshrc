@@ -51,7 +51,7 @@ fi
 alias vim="nvim"
 
 # ==================
-# Languages
+# Development
 # ==================
 
 # Rust
@@ -66,3 +66,12 @@ export NVM_DIR="$HOME/.nvm"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 source /usr/local/bin/virtualenvwrapper.sh
+
+# rbenv
+eval "$(rbenv init -)"
+
+# open frameworks
+export OF_ROOT="$HOME/dev/openframeworks"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
