@@ -16,12 +16,14 @@ homebrew/cask-fonts
 ```
 awscli            AWS command line tool
 coreutils         Basic utils
-fontconfig        Font configuration
+fzf               File finder
 git               Version control
-tmux              Terminal multiplexer
 neovim            Text editor
 python            Python
+rbenv             Ruby version management
 rustup            Rust depedency manager
+tmux              Terminal multiplexer
+tree              Folder structure tool
 wget              File
 zsh               Shell
 ```
@@ -30,6 +32,7 @@ zsh               Shell
 
 ```
 font-ibm-plex     Terminal font
+gimp              Graphics
 ```
 
 ## Further steps
