@@ -1,0 +1,1 @@
+aws s3 sync --acl public-read --delete $PWD s3://$1 --exclude "*.DS_Store*"
