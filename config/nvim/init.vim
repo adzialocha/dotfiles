@@ -34,7 +34,10 @@ set autoindent								" ... and even smarter.
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
+Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Colors
