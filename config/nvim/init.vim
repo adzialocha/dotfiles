@@ -21,8 +21,6 @@ set backupdir=/var/tmp,/tmp  	" But if you do, write it here
 set directory=/var/tmp,/tmp   " Or here
 
 " Indentation and Display
-set nowrap										" Don't wrap lines
-
 set tabstop=2									" Tabs are 2 spaces wide
 set shiftwidth=2							" ... indents as well
 
@@ -31,7 +29,9 @@ set smarttab									" Tabs be smart
 set smartindent								" ... same for indents
 set autoindent								" ... and even smarter.
 
-set textwidth=80							" Gutter at 80 chars
+set textwidth=0							  
 
 " Colors
-hi LineNr ctermfg=244		     
+hi LineNr ctermfg=244
+hi MatchParen cterm=underline ctermbg=none ctermfg=blue
+hi Search cterm=none ctermfg=black ctermbg=yellow
