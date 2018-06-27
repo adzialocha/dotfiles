@@ -19,7 +19,7 @@ set mouse=a										" Enable mouse in all modes
 
 " Turn off swap files
 set noswapfile             		" Disable .swp files
-set nobackup               		" Disable ~ backup files
+set nobackup               	  " Disable ~ backup files
 set nowritebackup         		" No really
 set backupdir=/var/tmp,/tmp  	" But if you do, write it here
 set directory=/var/tmp,/tmp   " Or here
@@ -37,6 +37,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 call plug#end()
 
