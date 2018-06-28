@@ -22,6 +22,7 @@ neovim            Text editor
 python            Python
 rbenv             Ruby version management
 rustup            Rust depedency manager
+sox               Audio swiss knife
 tmux              Terminal multiplexer
 tree              Folder structure tool
 wget              File
