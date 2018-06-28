@@ -16,6 +16,7 @@ homebrew/cask-fonts
 ```
 awscli            AWS command line tool
 coreutils         Basic utils
+fd                Find
 fzf               File finder
 git               Version control
 neovim            Text editor

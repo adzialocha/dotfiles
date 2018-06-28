@@ -1,1 +1,4 @@
+#!/usr/bin/env bash
+
+# s3-deploy <S3 Bucket Name> - Upload all files of current directory in a AWS S3 Bucket
 aws s3 sync --acl public-read --delete $PWD s3://$1 --exclude "*.DS_Store*"

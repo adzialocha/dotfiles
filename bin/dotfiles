@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# dotfiles - Bootstrap my configurations
+# Based on Ben Almans script: http://benalman.com/about/license/
+
 ###########################################
 # GENERAL PURPOSE EXPORTED VARS / FUNCTIONS
 ###########################################
