@@ -34,7 +34,9 @@ set autoindent								" ... and even smarter.
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
+Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
+Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
