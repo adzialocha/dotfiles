@@ -20,6 +20,8 @@ fd                Find
 fzf               File finder
 git               Version control
 neovim            Text editor
+pyenv             Python version management
+pyenv-virtualenv  Virtualenv for pyenv
 python            Python
 rbenv             Ruby version management
 rustup            Rust depedency manager

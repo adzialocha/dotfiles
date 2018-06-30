@@ -1,6 +1,6 @@
 eval my_gray='$FG[244]'
 
-PROMPT='$(_user_host)${_current_dir} $(git_prompt_info)
+PROMPT='$(_user_host)${_current_dir}$(_virtualenv)$(git_prompt_info)
 $my_gray$%{$reset_color%} '
 
 local _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%} "
@@ -13,6 +13,14 @@ function _user_host() {
   fi
   if [[ -n $me ]]; then
     echo "%{$fg[cyan]%}$me%{$reset_color%}:"
+  fi
+}
+
+function _virtualenv { 
+  if [[ -z $VIRTUAL_ENV ]]; then
+    # nothing
+  else
+    echo "%{$fg[white]%}(`basename \"$VIRTUAL_ENV\"`)%{$reset_color%} "
   fi
 }
 

@@ -62,16 +62,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/dev
-source /usr/local/bin/virtualenvwrapper.sh
-
 # rbenv
 eval "$(rbenv init -)"
-
-# open frameworks
-export OF_ROOT="$HOME/dev/openframeworks"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -88,3 +80,8 @@ _fzf_compgen_dir() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pyenv & pyenv-virtualenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
