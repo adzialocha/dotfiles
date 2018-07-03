@@ -20,6 +20,7 @@ fd                Find
 fzf               File finder
 git               Version control
 neovim            Text editor
+pandoc            Markdown to HTML
 pyenv             Python version management
 pyenv-virtualenv  Virtualenv for pyenv
 python            Python
@@ -37,6 +38,7 @@ zsh               Shell
 ```
 font-ibm-plex     Terminal font
 gimp              Graphics
+wkhtmltopdf       HTML to PDF converter
 ```
 
 ## Further steps
@@ -46,4 +48,3 @@ $ rustup-init                         Install rust
 https://github.com/jwilm/alacritty    Download and compile alacritty (Terminal)
 https://github.com/creationix/nvm     Install node (via nvm)
 ```
-
