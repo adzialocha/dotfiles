@@ -19,6 +19,7 @@ coreutils         Basic utils
 fd                Find
 fzf               File finder
 git               Version control
+portaudio         Audio I/O library
 neovim            Text editor
 pandoc            Markdown to HTML
 pyenv             Python version management

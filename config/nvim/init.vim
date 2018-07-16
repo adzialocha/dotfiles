@@ -62,3 +62,6 @@ endfunction
 " Key mappings
 map <F2> :call TrimWhiteSpace()<CR>
 map! <F2> :call TrimWhiteSpace()<CR>
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>f :Files ~<CR>
