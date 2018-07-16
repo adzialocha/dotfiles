@@ -12,6 +12,7 @@ set showcmd                    " Show incomplete commands
 set showmode                   " Show current mode
 set clipboard=unnamed          " Use system clipboard
 set hidden                     " Buffers can exist in the background
+set noshowmode                 " We have lightline for this
 
 " Mouse
 set ttyfast                    " Send more characters for redraws
@@ -40,12 +41,33 @@ match Whitespace /\s/
 call plug#begin('~/.config/nvim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 call plug#end()
+
+" Plugin: Lightline
+let g:lightline = {
+\ 'colorscheme': 'seoul256',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['readonly', 'linter_warnings', 'linter_errors']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'lightline#ale#warnings',
+\   'linter_errors': 'lightline#ale#errors',
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error',
+\ },
+\ }
 
 " Colors
 hi LineNr ctermfg=244 ctermbg=none
