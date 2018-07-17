@@ -1,18 +1,15 @@
-" Editor settings
-set encoding=utf8              " Utf8 everywhere
-syntax on                      " Syntax highlighthing on
+" Vim options
+" -----------------------------------------------------------------------------
 
-" Term & colors
-set background=dark            " We use a dark theme
 
 " General configuration
-set number                     " Line numbers
-set history=1000               " Extend undo history
-set showcmd                    " Show incomplete commands
-set showmode                   " Show current mode
 set clipboard=unnamed          " Use system clipboard
+set encoding=utf8              " Utf8 everywhere
 set hidden                     " Buffers can exist in the background
+set history=1000               " Extend undo history
 set noshowmode                 " We have lightline for this
+set number                     " Line numbers
+set showcmd                    " Show incomplete commands
 
 " Mouse
 set ttyfast                    " Send more characters for redraws
@@ -29,15 +26,24 @@ set directory=/var/tmp,/tmp    " Or here
 set tabstop=2                  " Tabs are 2 spaces wide
 set shiftwidth=2               " ... indents as well
 set expandtab                  " Insert spaces for tabs
+set copyindent                 " Make autoindent use same chars as prev line
 set smarttab                   " Tabs be smart
 set smartindent                " ... same for indents
-set autoindent                 " ... and even smarter.
+set autoindent                 " ... and even smarter
+set linebreak                  " Break long lines by word, not char
 
-" Show whitespace chars & assign to color group
-set list listchars=trail:.,extends:>
-match Whitespace /\s/
+" Scrolling
+set scroll=4                   " Number of lines to scroll with ^U/^D
+set scrolloff=15               " Keep cursor away from this many chars
 
-" Plugins
+" Searching
+set smartcase                  " Lets you search for ALL CAPS
+
+" Plugins & Settings
+" -----------------------------------------------------------------------------
+
+
+" Install plugins via plugged
 call plug#begin('~/.config/nvim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
@@ -51,12 +57,18 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 call plug#end()
 
-" Plugin: Lightline
+" Lightline
 let g:lightline = {
 \ 'colorscheme': 'seoul256',
 \ 'active': {
-\   'left': [['mode', 'paste'], ['filename', 'modified']],
-\   'right': [['lineinfo'], ['readonly', 'linter_warnings', 'linter_errors']]
+\   'left': [
+\     ['mode', 'paste'],
+\     ['filename', 'modified']
+\   ],
+\   'right': [
+\     ['lineinfo'],
+\     ['readonly', 'linter_warnings', 'linter_errors']
+\   ]
 \ },
 \ 'component_expand': {
 \   'linter_warnings': 'lightline#ale#warnings',
@@ -69,21 +81,66 @@ let g:lightline = {
 \ },
 \ }
 
-" Colors
-hi LineNr ctermfg=244 ctermbg=none
-hi MatchParen cterm=underline ctermbg=none ctermfg=blue
-hi Search cterm=none ctermfg=black ctermbg=yellow
+let g:ale_sign_error = '✗'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+" FZF
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>f :Files ~<CR>
+
+" Color and syntax
+" -----------------------------------------------------------------------------
+
+
+" Settings
+set background=dark            " We use a dark theme
+syntax on                      " Syntax highlighthing on
+
+" Show whitespace chars & assign to color group
+set list listchars=trail:.,extends:>
+match Whitespace /\s/
 hi Whitespace ctermfg=244
 
-" Function: Removes trailing spaces
+" Use similar line colors like our zsh prompt
+hi LineNr ctermfg=244 ctermbg=none
+
+" Make match visible
+hi MatchParen cterm=underline ctermbg=none ctermfg=blue
+
+" Nice looking search highlighting
+hi Search cterm=none ctermfg=black ctermbg=yellow
+
+" Key mappings
+" -----------------------------------------------------------------------------
+
+
+" Useful macros
+nmap <Leader>i vip:sort<CR>
+
+" Switch between current/previous buffer
+nmap <C-e> :e#<CR>
+
+" Move in command line as we know it from terminals
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <Delete>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+" Window movement shortcuts
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Removes trailing spaces
+map <F2> :call TrimWhiteSpace()<CR>
+map! <F2> :call TrimWhiteSpace()<CR>
+
 function TrimWhiteSpace()
   %s/\s*$//
   ''
 endfunction
-
-" Key mappings
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
-nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>f :Files ~<CR>
