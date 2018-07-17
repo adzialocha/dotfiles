@@ -81,9 +81,18 @@ let g:lightline = {
 \ },
 \ }
 
-let g:ale_sign_error = '✗'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+let g:ale_lint_on_text_changed = 'never'     " Only lint when text is saved
+
+hi ALEErrorSign ctermbg=none ctermfg=red
+hi ALEWarningSign ctermbg=none ctermfg=yellow
+hi ALEStyleWarning ctermfg=black
+hi ALEStyleWarning ctermbg=yellow
+hi ALEWarning ctermfg=black
+hi ALEWarning ctermbg=yellow
+hi ALEStyleError ctermfg=black
+hi ALEStyleError ctermbg=red
+hi ALEError ctermfg=black
+hi ALEError ctermbg=red
 
 " FZF
 nmap ; :Buffers<CR>
@@ -105,6 +114,9 @@ hi Whitespace ctermfg=244
 
 " Use similar line colors like our zsh prompt
 hi LineNr ctermfg=244 ctermbg=none
+
+" Change the gutter color to something less strong
+hi SignColumn ctermbg=none
 
 " Make match visible
 hi MatchParen cterm=underline ctermbg=none ctermfg=blue
