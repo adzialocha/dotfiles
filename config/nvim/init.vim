@@ -81,6 +81,7 @@ let g:lightline = {
 \ },
 \ }
 
+" ALE
 let g:ale_lint_on_text_changed = 'never'     " Only lint when text is saved
 
 hi ALEErrorSign ctermbg=none ctermfg=red
