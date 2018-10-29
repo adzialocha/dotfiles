@@ -49,6 +49,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
@@ -84,14 +85,18 @@ let g:lightline = {
 " ALE
 hi ALEErrorSign ctermbg=none ctermfg=red
 hi ALEWarningSign ctermbg=none ctermfg=yellow
-hi ALEStyleWarning ctermfg=black
+hi ALEStyleWarning ctermfg=none
 hi ALEStyleWarning ctermbg=yellow
-hi ALEWarning ctermfg=black
+hi ALEWarning ctermfg=none
 hi ALEWarning ctermbg=yellow
-hi ALEStyleError ctermfg=black
+hi ALEStyleError ctermfg=none
 hi ALEStyleError ctermbg=red
-hi ALEError ctermfg=black
+hi ALEError ctermfg=none
 hi ALEError ctermbg=red
+
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ }
 
 " FZF
 nmap ; :Buffers<CR>
