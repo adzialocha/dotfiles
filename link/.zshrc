@@ -1,7 +1,7 @@
 function add_to_path {
   case ":$PATH:" in
     *":$1:"*) :;; # already there
-    *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
+    *) PATH="$PATH:$1";;
   esac
 }
 
@@ -87,4 +87,5 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # yarn
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+add_to_path $HOME/.yarn/bin
+add_to_path $HOME/.config/yarn/global/node_modules/.bin
