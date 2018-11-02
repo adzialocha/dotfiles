@@ -47,6 +47,7 @@ set smartcase                  " Lets you search for ALL CAPS
 call plug#begin('~/.config/nvim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
@@ -85,17 +86,22 @@ let g:lightline = {
 " ALE
 hi ALEErrorSign ctermbg=none ctermfg=red
 hi ALEWarningSign ctermbg=none ctermfg=yellow
-hi ALEStyleWarning ctermfg=none
+hi ALEStyleWarning ctermfg=black
 hi ALEStyleWarning ctermbg=yellow
-hi ALEWarning ctermfg=none
+hi ALEWarning ctermfg=black
 hi ALEWarning ctermbg=yellow
-hi ALEStyleError ctermfg=none
+hi ALEStyleError ctermfg=black
 hi ALEStyleError ctermbg=red
-hi ALEError ctermfg=none
+hi ALEError ctermfg=black
 hi ALEError ctermbg=red
 
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
+\ }
+
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'scss': ['stylelint'],
 \ }
 
 " FZF
