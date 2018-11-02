@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# work - start a tmux session named "work" with an horizontal splitscreen
+tmux a -t work || tmux new -s work \; split-window -h \; select-pane -t 0
