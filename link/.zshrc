@@ -11,6 +11,7 @@ function add_to_path {
 
 # Add dotfiles bin and brew path.
 add_to_path $HOME/.dotfiles/bin
+add_to_path /usr/local/sbin
 add_to_path /usr/local/bin
 
 # Path to our oh-my-zsh installation.
