@@ -30,6 +30,7 @@ ZSH_CUSTOM=$HOME/.config/zsh-custom
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
   git
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -37,6 +38,9 @@ source $ZSH/oh-my-zsh.sh
 # ==================
 # User configuration
 # ==================
+
+# Kill the <ESC> key lag
+export KEYTIMEOUT=1
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -60,7 +64,7 @@ add_to_path $HOME/.cargo/bin
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # rbenv
@@ -90,3 +94,6 @@ eval "$(pyenv virtualenv-init -)"
 # yarn
 add_to_path $HOME/.yarn/bin
 add_to_path $HOME/.config/yarn/global/node_modules/.bin
+
+# vault autocompletion
+which vault > /dev/null && . "$( vault --initpath )"
