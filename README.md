@@ -38,8 +38,10 @@ zsh                 Shell
 ### Casks
 
 ```
+alacritty         Terminal
 font-ibm-plex     Terminal font
 gimp              Graphics
+libreoffice       Office Suite
 wkhtmltopdf       HTML to PDF converter
 ```
 
@@ -47,6 +49,5 @@ wkhtmltopdf       HTML to PDF converter
 
 ```
 $ rustup-init                         Install rust
-https://github.com/jwilm/alacritty    Download and compile alacritty (Terminal)
 https://github.com/creationix/nvm     Install node (via nvm)
 ```
