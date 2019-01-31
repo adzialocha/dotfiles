@@ -10,6 +10,7 @@ set history=1000               " Extend undo history
 set noshowmode                 " We have lightline for this
 set number                     " Line numbers
 set showcmd                    " Show incomplete commands
+set autoread                   " Reload automatically on file changes
 
 " Mouse
 set ttyfast                    " Send more characters for redraws
@@ -47,12 +48,15 @@ set smartcase                  " Lets you search for ALL CAPS
 call plug#begin('~/.config/nvim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
+Plug 'brooth/far.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
