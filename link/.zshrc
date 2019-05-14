@@ -96,3 +96,10 @@ add_to_path $HOME/.config/yarn/global/node_modules/.bin
 
 # vault autocompletion
 which vault > /dev/null && . "$( vault --initpath )"
+
+# go
+export GOPATH=$HOME/dev/go
+add_to_path $GOPATH/bin
+
+# Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home
