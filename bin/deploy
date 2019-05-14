@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# deploy <Local Path> <Remote Path> <SSH Host> - Upload all files of the selected directory cleanly via scp
+
+# Arguments
+path_dist=$1
+path_remote=$2
+host=$3
+
+if ! [[ -d $path_dist ]]; then
+  echo "Invalid local folder path" >&2
+  exit 1
+fi
+
+if [[ -z "$path_remote" ]]; then
+  echo "No remote path given" >&2
+  exit 1
+fi
+
+if [[ -z "$host" ]]; then
+  echo "No SSH host name given" >&2
+  exit 1
+fi
+
+# Delete all files
+echo "Remove all files from server"
+ssh web "rm -rf $path_remote/*"
+
+# List all files in `dist` folder
+files="$(tree -fi $path_dist --noreport)"
+
+for entry in $files
+do
+  path="${entry//$path_dist\//$path_remote/}"
+
+  if [[ -d $entry && $entry != $path_dist ]]; then
+    # Create folder on server
+    echo "Create folder: $path"
+    ssh web "mkdir -p $path"
+  elif [[ -f $entry ]]; then
+    # Upload all files to server
+    scp $entry $host:/$path
+  fi
+done
