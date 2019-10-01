@@ -26,8 +26,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 2
-    y: 2
+    x: 5
+    y: 0
 
   # Window decorations
   #
@@ -98,7 +98,7 @@ font:
     # style: Italic
 
   # Point size
-  size: 14.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -119,9 +119,6 @@ font:
   # it is recommended to set `use_thin_strokes` to `false`
   use_thin_strokes: false
 
-# Display the time it takes to redraw each frame.
-render_timer: false
-
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
@@ -131,6 +128,7 @@ colors:
   primary:
     background: '0x1e1e1e' # base 05
     foreground: '0xd3c0c8' # base 00
+    # foreground: '0xffffff' # base 00
 
     # Bright and dim foreground colors
     #
@@ -269,7 +267,7 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 cursor:
   # Cursor style
@@ -483,8 +481,8 @@ key_bindings:
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
   - { key: NumpadEnter,             chars: "\n"                          }
   # For faster moving in the terminal
-  - { key: F,        mods: Alt,     chars: "\x1bf"                       }
-  - { key: B,        mods: Alt,     chars: "\x1bb"                       }
+  - { key: F,        mods: Command,     chars: "\x1bf"                       }
+  - { key: B,        mods: Command,     chars: "\x1bb"                       }
   # We need this for fzf.vim
-  - { key: A,        mods: Alt,     chars: "\x1ba"                       }
-  - { key: D,        mods: Alt,     chars: "\x1bd"                       }
+  - { key: A,        mods: Command,     chars: "\x1ba"                       }
+  - { key: D,        mods: Command,     chars: "\x1bd"                       }
