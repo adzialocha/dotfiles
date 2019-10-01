@@ -1,0 +1,102 @@
+! fonts
+Xft.dpi:        124.37
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.rgba:       rgb
+Xft.autohint:   false
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
+
+! special
+*.foreground:   #d3d0c8
+*.background:   #2d2d2d
+*.cursorColor:  #d3d0c8
+
+! black
+*.color0:       #2d2d2d
+*.color8:       #747369
+
+! red
+*.color1:       #f2777a
+*.color9:       #f2777a
+
+! green
+*.color2:       #99cc99
+*.color10:      #99cc99
+
+! yellow
+*.color3:       #ffcc66
+*.color11:      #ffcc66
+
+! blue
+*.color4:       #6699cc
+*.color12:      #6699cc
+
+! magenta
+*.color5:       #cc99cc
+*.color13:      #cc99cc
+
+! cyan
+*.color6:       #66cccc
+*.color14:      #66cccc
+
+! white
+*.color7:       #d3d0c8
+*.color17:      #f2f0ec
+
+! xscreensaver
+xscreensaver.mode: blank
+xscreensaver.timeout: 0:10:00
+xscreensaver.cycle: 0:10:00
+xscreensaver.lockTimeout: 0:00:00
+xscreensaver.passwdTimeout: 0:00:30
+xscreensaver.dpmsEnabled: True
+xscreensaver.dpmsQuickoffEnabled: False
+xscreensaver.dpmsStandby: 2:00:00
+xscreensaver.dpmsSuspend: 2:00:00
+xscreensaver.dpmsOff: 4:00:00
+
+xscreensaver.fade: False
+xscreensaver.unfade: False
+xscreensaver.fadeSeconds: 0:00:00
+xscreensaver.fadeTicks: 20
+xscreensaver.splash: False
+xscreensaver.splashDuration: 0:00:00
+
+! Resources for the password and splash-screen dialog boxes of
+! the "xscreensaver" daemon.
+xscreensaver.Dialog.headingFont: -*-ibm plex mono-*-r-normal-*-0-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont: -*-ibm plex mono-*-r-normal-*-0-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont: -*-ibm plex mono-*-r-normal-*-0-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont: -*-ibm plex mono-*-r-normal-*-0-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont: -*-ibm plex mono-*-r-normal-*-0-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont: -*-ibm plex mono-*-r-normal-*-0-*-*-*-*-*-*-*
+
+! Helvetica asterisks look terrible.
+xscreensaver.passwd.passwdFont: -*-ibm plex mono-*-r-normal-*-0-*-*-*-*-*-*-*
+
+xscreensaver.Dialog.foreground: #d3c0c8
+xscreensaver.Dialog.background: #1e1e1e
+xscreensaver.Dialog.Button.foreground: #ffffff
+xscreensaver.Dialog.Button.background: #000000
+
+xscreensaver.Dialog.text.foreground: #d3c0c8
+xscreensaver.Dialog.text.background: #1e1e1e
+xscreensaver.passwd.thermometer.foreground: #f2777a
+xscreensaver.passwd.thermometer.background: #000000
+xscreensaver.Dialog.topShadowColor: #000000
+xscreensaver.Dialog.bottomShadowColor: #000000
+xscreensaver.Dialog.logo.width: 250
+xscreensaver.Dialog.logo.height: 250
+xscreensaver.Dialog.internalBorderWidth: 10
+xscreensaver.Dialog.borderWidth: 1
+xscreensaver.Dialog.shadowThickness: 5
+
+xscreensaver.passwd.heading.label: XScreenSaver %s
+xscreensaver.passwd.body.label: This screen is locked.
+xscreensaver.passwd.unlock.label: OK
+xscreensaver.passwd.login.label: New Login
+xscreensaver.passwd.user.label: Username:
+xscreensaver.passwd.thermometer.width: 20
+xscreensaver.passwd.asterisks: False
+xscreensaver.passwd.uname: True
