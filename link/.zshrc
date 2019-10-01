@@ -61,13 +61,9 @@ alias vim="nvim"
 # Rust
 add_to_path $HOME/.cargo/bin
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# rbenv
-eval "$(rbenv init -)"
+# npm
+export npm_config_prefix=$HOME/.node_modules
+add_to_path $npm_config_prefix/bin
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -90,16 +86,5 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# yarn
-add_to_path $HOME/.yarn/bin
-add_to_path $HOME/.config/yarn/global/node_modules/.bin
-
 # vault autocompletion
 which vault > /dev/null && . "$( vault --initpath )"
-
-# go
-export GOPATH=$HOME/dev/go
-add_to_path $GOPATH/bin
-
-# Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home
