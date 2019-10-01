@@ -3,7 +3,7 @@
 
 
 " General configuration
-set clipboard=unnamed          " Use system clipboard
+set clipboard=unnamedplus      " Use system clipboard
 set encoding=utf8              " Utf8 everywhere
 set hidden                     " Buffers can exist in the background
 set history=1000               " Extend undo history
@@ -86,6 +86,10 @@ let g:lightline = {
 \   'linter_errors': 'error',
 \ },
 \ }
+
+" vim-markdown (via vim-polyglot)
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_fenced_languages = ['javascript=js', 'bash=sh']
 
 " ALE
 hi ALEErrorSign ctermbg=none ctermfg=red
