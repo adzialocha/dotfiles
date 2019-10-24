@@ -61,9 +61,10 @@ alias vim="nvim"
 # Rust
 add_to_path $HOME/.cargo/bin
 
-# npm
-export npm_config_prefix=$HOME/.node_modules
-add_to_path $npm_config_prefix/bin
+# nvm
+export NVM_DIR="$HOME/.nvm"
+export NVM_SOURCE="/usr/share/nvm"
+[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
