@@ -1,7 +1,7 @@
 .netrwhist
 
 # plugins
-autoload/plug.vim
-bundle/**
-plugged/**
-spell/**
+autoload
+bundle
+plugged
+spell
