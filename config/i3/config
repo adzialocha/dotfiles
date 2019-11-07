@@ -116,7 +116,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-
 # switch to workspace
 bindsym Mod1+1 workspace $ws1
 bindsym Mod1+2 workspace $ws2
@@ -179,7 +178,14 @@ bindsym Mod1+r mode "resize"
 bar {
         status_command i3status
         separator_symbol " ~ "
-        workspace_buttons no
+
+        colors {
+            background         #000000
+            focused_workspace  #000000 #1e1e1e #d3c0c8
+            active_workspace   #000000 #000000 #d3c0c8
+            inactive_workspace #000000 #000000 #d3c0c8
+            urgent_workspace   #f2777a #000000 #d3c0c8
+        }
 }
 
 exec alacritty
