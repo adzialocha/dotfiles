@@ -63,8 +63,7 @@ add_to_path $HOME/.cargo/bin
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-export NVM_SOURCE="/usr/share/nvm"
-[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
