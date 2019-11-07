@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# open-url <URL> - Check which program exists on machine and open URL with it
+
+# Arguments
+url=$1
+
+has_command () {
+  type "$1" &> /dev/null;
+}
+
+if has_command xdg-open; then
+  xdg-open $url
+elif has_command open; then
+  open $url
+elif has_command firefox; then
+  firefox $url
+fi
