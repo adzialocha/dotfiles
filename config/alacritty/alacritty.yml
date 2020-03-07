@@ -56,15 +56,6 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-  # Faux Scrolling
-  #
-  # The `faux_multiplier` setting controls the number of lines the terminal
-  # should scroll when the alternate screen buffer is active. This is used
-  # to allow mouse scrolling for applications like `man`.
-  #
-  # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
-
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
 
@@ -255,7 +246,7 @@ mouse:
     #
     # This program is executed when clicking on a text which is recognized as a URL.
     # The URL is always added to the command as the last parameter.
-    launcher: open-url
+    launcher: xdg-open
 
     # URL modifiers
     #
@@ -479,10 +470,9 @@ key_bindings:
   - { key: F10,      mods: Command, chars: "\x1b[21;3~"                  }
   - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
-  - { key: NumpadEnter,             chars: "\n"                          }
   # For faster moving in the terminal
-  - { key: F,        mods: Command,     chars: "\x1bf"                       }
-  - { key: B,        mods: Command,     chars: "\x1bb"                       }
+  - { key: F,        mods: Command, chars: "\x1bf"                       }
+  - { key: B,        mods: Command, chars: "\x1bb"                       }
   # We need this for fzf.vim
-  - { key: A,        mods: Command,     chars: "\x1ba"                       }
-  - { key: D,        mods: Command,     chars: "\x1bd"                       }
+  - { key: A,        mods: Command, chars: "\x1ba"                       }
+  - { key: D,        mods: Command, chars: "\x1bd"                       }
