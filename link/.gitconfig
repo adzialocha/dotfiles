@@ -26,3 +26,5 @@
   default = simple
 [merge]
   log = true
+[log]
+  abbrevcommit = true
