@@ -117,6 +117,14 @@ nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>f :Files ~<CR>
 
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+
+call SetupCommandAlias("ag","Ag")
+
 " Color and syntax
 " -----------------------------------------------------------------------------
 
