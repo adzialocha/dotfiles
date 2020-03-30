@@ -32,6 +32,7 @@ ethernet _first_ {
 
 battery all {
         format = "%status %percentage %remaining"
+        format_down = ""
         low_threshold = 10
         threshold_type = "percentage"
 }
