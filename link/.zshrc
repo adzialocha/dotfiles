@@ -54,6 +54,7 @@ fi
 # ==================
 
 alias Ag="ag"
+alias fd="fdfind"
 alias l="ls -lah --group-directories-first"
 alias la="ls -lAhv --group-directories-first"
 alias ll="ls -lh --group-directories-first"
