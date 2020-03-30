@@ -15,7 +15,7 @@ fi
 
 # start redshift and screensaver in the background
 
-exec redshift &
+# exec redshift &
 exec xscreensaver -no-splash &
 
 # start i3 window manager
