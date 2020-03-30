@@ -15,13 +15,8 @@ fi
 
 # start redshift and screensaver in the background
 
-# exec redshift &
+exec redshift &
 exec xscreensaver -no-splash &
-
-# setup key bindings
-
-xmodmap ~/.Xmodmap
-exec xbindkeys &
 
 # start i3 window manager
 

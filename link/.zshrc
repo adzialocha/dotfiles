@@ -69,7 +69,7 @@ add_to_path $HOME/.cargo/bin
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -93,4 +93,4 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # vault autocompletion
-which vault > /dev/null && . "$( vault --initpath )"
+which vault > /dev/null && . "$(vault --initpath)"
