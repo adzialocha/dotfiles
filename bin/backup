@@ -11,6 +11,7 @@
 # Usage:
 # ======
 # To create: borg init -e repokey-blake2
+# To export key: borg key export --paper > $(echo "$(hostname)-borg-key.txt")
 # To restore: borg extract --dry-run --debug --list ::hostname-YYYY-MM-DD@hh-mm
 
 info() {
