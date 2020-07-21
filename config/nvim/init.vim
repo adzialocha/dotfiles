@@ -46,18 +46,17 @@ set smartcase                  " Lets you search for ALL CAPS
 
 " Install plugins via plugged
 call plug#begin('~/.config/nvim/plugged')
-Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
 Plug 'brooth/far.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'pangloss/vim-javascript'
-Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
@@ -86,10 +85,6 @@ let g:lightline = {
 \   'linter_errors': 'error',
 \ },
 \ }
-
-" vim-markdown (via vim-polyglot)
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_fenced_languages = ['javascript=js', 'bash=sh']
 
 " ALE
 hi ALEErrorSign ctermbg=none ctermfg=red
@@ -123,6 +118,7 @@ fun! SetupCommandAlias(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfun
 
+" Ag
 call SetupCommandAlias("ag","Ag")
 
 " Color and syntax
