@@ -19,7 +19,7 @@ main() {
 
 select_file() {
   given_file="$1"
-  ls $target_dir | fzf --preview="batcat --style=numbers --color=always $target_dir/{}" --preview-window=right:70%:wrap --query="$given_file"
+  ls $target_dir | fzf --preview="bat --style=numbers --color=always $target_dir/{}" --preview-window=right:70%:wrap --query="$given_file"
 }
 
 main ""
