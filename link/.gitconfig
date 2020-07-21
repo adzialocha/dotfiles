@@ -24,6 +24,8 @@
   untracked = red
 [push]
   default = simple
+[pull]
+  rebase = true
 [merge]
   log = true
 [log]
