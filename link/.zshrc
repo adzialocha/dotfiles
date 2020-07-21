@@ -5,6 +5,20 @@ function add_to_path {
   esac
 }
 
+function optional_add_to_path {
+  if [ -d $1 ]
+  then
+    add_to_path $1
+  fi
+}
+
+function optional_alias {
+  if [ -x "$(command -v $2)" ]
+  then
+    alias $1="$2"
+  fi
+}
+
 # ====================
 # Basic path setup
 # ====================
@@ -30,6 +44,7 @@ ZSH_CUSTOM=$HOME/.config/zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
+  cp
   git
 )
 
@@ -54,11 +69,13 @@ fi
 # ==================
 
 alias Ag="ag"
-alias fd="fdfind"
+alias vim="nvim"
 alias l="ls -lah --group-directories-first"
 alias la="ls -lAhv --group-directories-first"
 alias ll="ls -lh --group-directories-first"
-alias vim="nvim"
+
+optional_alias bat batcat
+optional_alias fd fdfind
 
 # ==================
 # Development
@@ -73,7 +90,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # fzf
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Use fd listing path candidates
@@ -94,5 +111,5 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# vault autocompletion
-which vault > /dev/null && . "$(vault --initpath)"
+# cuda
+optional_add_to_path /usr/local/cuda-10.1/bin
