@@ -5,6 +5,8 @@
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore-global
+[init]
+  defaultBranch = main
 [apply]
   whitespace = fix
 [color]
