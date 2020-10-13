@@ -99,11 +99,14 @@ hi ALEError ctermfg=black
 hi ALEError ctermbg=red
 
 let g:ale_linters = {
-\ 'javascript': ['eslint'],
+\ 'javascript': ['eslint', 'standard'],
+\ 'typescript': ['eslint', 'standard'],
 \ }
 
 let g:ale_fixers = {
-\ 'javascript': ['eslint'],
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'javascript': ['eslint', 'standard'],
+\ 'typescript': ['eslint', 'standard'],
 \ 'scss': ['stylelint'],
 \ }
 
@@ -150,7 +153,7 @@ hi Search cterm=none ctermfg=black ctermbg=yellow
 " -----------------------------------------------------------------------------
 
 
-" Useful macros
+" Select and sort paragraph
 nmap <Leader>i vip:sort<CR>
 
 " Switch between current/previous buffer
@@ -169,6 +172,13 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Move to next linting error (via ALE)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Fix lint errors (via ALE)
+nmap <silent> <F3> <Plug>(ale_fix)
 
 " Removes trailing spaces
 map <F2> :call TrimWhiteSpace()<CR>
