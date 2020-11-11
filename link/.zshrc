@@ -113,4 +113,4 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # cuda
-optional_add_to_path /usr/local/cuda-11.1/bin
+optional_add_to_path /usr/local/cuda-10.1/bin
