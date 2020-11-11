@@ -46,6 +46,7 @@ ZSH_CUSTOM=$HOME/.config/zsh-custom
 plugins=(
   cp
   git
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -112,7 +113,4 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # cuda
-optional_add_to_path /usr/local/cuda-10.1/bin
-
-# terraform
-add_to_path $HOME/opt/terraform
+optional_add_to_path /usr/local/cuda-11.1/bin
