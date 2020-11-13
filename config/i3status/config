@@ -15,30 +15,11 @@ general {
 }
 
 order += "wireless _first_"
-order += "ethernet _first_"
-order += "battery all"
-order += "load"
 order += "tztime local"
 
 wireless _first_ {
         format_up = "%quality %ip"
         format_down = ""
-}
-
-ethernet _first_ {
-        format_up = "E: %ip"
-        format_down = ""
-}
-
-battery all {
-        format = "%status %percentage %remaining"
-        format_down = ""
-        low_threshold = 10
-        threshold_type = "percentage"
-}
-
-load {
-        format = "%1min"
 }
 
 tztime local {
