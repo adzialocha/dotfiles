@@ -47,6 +47,7 @@ set smartcase                  " Lets you search for ALL CAPS
 " Install plugins via plugged
 call plug#begin('~/.config/nvim/plugged')
 Plug 'Raimondi/delimitMate'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'brooth/far.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
@@ -87,6 +88,70 @@ let g:lightline = {
 \ }
 
 " ALE
+let g:ale_lint_on_text_changed = 'never' " Do not automatically check while editing
+let g:ale_set_loclist = 0                " Do not use loclist
+
+" Configure linters and fixers
+let g:ale_linters = {
+\ 'rust': ['analyzer'],
+\ }
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'javascript': ['eslint', 'standard'],
+\ 'rust': ['rustfmt'],
+\ 'scss': ['stylelint'],
+\ 'typescript': ['eslint', 'standard'],
+\ 'typescriptreact': ['eslint', 'standard'],
+\ }
+
+" FZF
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+
+" Ag
+call SetupCommandAlias("ag","Ag")
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option({
+\ 'auto_complete_delay': 200,
+\ })
+
+set completeopt-=preview
+
+" Color and syntax
+" -----------------------------------------------------------------------------
+
+
+" Settings
+set background=dark            " We use a dark theme
+syntax on                      " Syntax highlighthing on
+
+" TypeScript + React syntax highlighting is ugly, just take the js one
+autocmd BufNewFile,BufRead *.tsx set syntax=javascript
+
+" Show whitespace chars & assign to color group
+set list listchars=trail:.,extends:>
+match Whitespace /\s/
+hi Whitespace ctermfg=grey
+
+" Use similar line colors like our zsh prompt
+hi LineNr ctermfg=grey ctermbg=none
+
+" Change the gutter color to something less strong
+hi SignColumn ctermbg=none
+
+" Make match visible
+hi MatchParen cterm=underline ctermbg=none ctermfg=blue
+
+" Nice looking search highlighting
+hi Search cterm=none ctermfg=black ctermbg=yellow
+
+" ALE linter plugin colors
 hi ALEErrorSign ctermbg=none ctermfg=red
 hi ALEWarningSign ctermbg=none ctermfg=yellow
 hi ALEStyleWarning ctermfg=black
@@ -98,60 +163,20 @@ hi ALEStyleError ctermbg=red
 hi ALEError ctermfg=black
 hi ALEError ctermbg=red
 
-let g:ale_linters = {
-\ 'javascript': ['eslint', 'standard'],
-\ 'typescript': ['eslint', 'standard'],
-\ }
-
-let g:ale_fixers = {
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'javascript': ['eslint', 'standard'],
-\ 'typescript': ['eslint', 'standard'],
-\ 'scss': ['stylelint'],
-\ }
-
-" FZF
-nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>f :Files ~<CR>
-
-fun! SetupCommandAlias(from, to)
-  exec 'cnoreabbrev <expr> '.a:from
-        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
-        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
-endfun
-
-" Ag
-call SetupCommandAlias("ag","Ag")
-
-" Color and syntax
-" -----------------------------------------------------------------------------
+" Deoplete autocomplete plugin colors
+hi Pmenu ctermbg=235 ctermfg=white
+hi PmenuSel ctermbg=cyan ctermfg=black
+hi PmenuSbar ctermbg=235
+hi PmenuThumb ctermbg=grey
 
 
-" Settings
-set background=dark            " We use a dark theme
-syntax on                      " Syntax highlighthing on
-
-" Show whitespace chars & assign to color group
-set list listchars=trail:.,extends:>
-match Whitespace /\s/
-hi Whitespace ctermfg=244
-
-" Use similar line colors like our zsh prompt
-hi LineNr ctermfg=244 ctermbg=none
-
-" Change the gutter color to something less strong
-hi SignColumn ctermbg=none
-
-" Make match visible
-hi MatchParen cterm=underline ctermbg=none ctermfg=blue
-
-" Nice looking search highlighting
-hi Search cterm=none ctermfg=black ctermbg=yellow
 
 " Key mappings
 " -----------------------------------------------------------------------------
 
+
+" Do not open help menu on F1
+map <F1> <nop>
 
 " Select and sort paragraph
 nmap <Leader>i vip:sort<CR>
@@ -173,18 +198,19 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Move to next linting error (via ALE)
+" ALE move to next linting error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" Fix lint errors (via ALE)
-nmap <silent> <F3> <Plug>(ale_fix)
+" ALE fix lint errors
+nmap <silent> <F1> <Plug>(ale_fix)
 
-" Removes trailing spaces
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
+" ALE Language Server
+nmap <silent> K <Plug>(ale_hover)
+nmap <silent> gd <Plug>(ale_go_to_definition)
+nmap <silent> <F2> <Plug>(ale_rename)
 
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-endfunction
+" FZF Search
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>f :Files ~<CR>
