@@ -93,21 +93,12 @@ let g:ale_set_loclist = 0                " Do not use loclist
 
 " Configure linters and fixers
 let g:ale_linters = {
-<<<<<<< HEAD
-\ 'javascript': ['eslint', 'standard'],
-\ 'typescript': ['eslint', 'standard'],
-=======
 \ 'rust': ['analyzer'],
->>>>>>> language-client
 \ }
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': ['eslint', 'standard'],
-<<<<<<< HEAD
-\ 'typescript': ['eslint', 'standard'],
-=======
 \ 'rust': ['rustfmt'],
->>>>>>> language-client
 \ 'scss': ['stylelint'],
 \ 'typescript': ['eslint', 'standard'],
 \ 'typescriptreact': ['eslint', 'standard'],
