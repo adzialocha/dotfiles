@@ -75,7 +75,6 @@ alias l="ls -lah --group-directories-first"
 alias la="ls -lAhv --group-directories-first"
 alias ll="ls -lh --group-directories-first"
 
-optional_alias bat batcat
 optional_alias fd fdfind
 
 # ==================
