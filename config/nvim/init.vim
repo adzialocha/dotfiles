@@ -132,7 +132,6 @@ set background=dark            " We use a dark theme
 syntax on                      " Syntax highlighthing on
 
 " TypeScript + React syntax highlighting is ugly, just take the js one
-autocmd BufNewFile,BufRead *.ts set syntax=javascript
 autocmd BufNewFile,BufRead *.tsx set syntax=javascript
 autocmd BufNewFile,BufRead *.ts set syntax=javascript
 
