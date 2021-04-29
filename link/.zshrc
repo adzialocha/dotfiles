@@ -1,3 +1,5 @@
+# Adds another path to `$PATH` environment variable and makes sure to avoid
+# duplicates
 function add_to_path {
   case ":$PATH:" in
     *":$1:"*) :;; # already there
@@ -5,6 +7,7 @@ function add_to_path {
   esac
 }
 
+# Uses `add_to_path` function but makes sure the to-be-added path really exists
 function optional_add_to_path {
   if [ -d $1 ]
   then
@@ -12,6 +15,7 @@ function optional_add_to_path {
   fi
 }
 
+# Creates an alias when the binary exists
 function optional_alias {
   if [ -x "$(command -v $2)" ]
   then
