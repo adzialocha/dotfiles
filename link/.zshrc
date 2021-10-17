@@ -40,10 +40,13 @@ ZSH_CUSTOM=$HOME/.config/zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
+  cargo
   cp
+  docker
+  fzf
   git
-  universalarchive
   kubectl
+  universalarchive
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -86,11 +89,6 @@ alias ll="ls -lh --group-directories-first"
 # Rust
 add_to_path $HOME/.cargo/bin
 
-# nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
 # fzf
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -122,3 +120,8 @@ optional_add_to_path /usr/local/cuda/bin
 # ruby
 export GEM_HOME="$HOME/.gems"
 add_to_path $GEM_HOME/bin
+
+# n
+export N_PREFIX=$HOME/.n
+export N_PRESERVE_NPM=1
+add_to_path $N_PREFIX/bin
