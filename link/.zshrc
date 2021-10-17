@@ -62,9 +62,6 @@ else
   export EDITOR='nvim'
 fi
 
-# Set keyboard layout
-setxkbmap eu
-
 # ==================
 # Alias
 # ==================
@@ -115,3 +112,6 @@ optional_add_to_path /usr/local/cuda/bin
 # ruby
 export GEM_HOME="$HOME/.gems"
 add_to_path $GEM_HOME/bin
+
+# poetry
+add_to_path $HOME/.poetry/bin
