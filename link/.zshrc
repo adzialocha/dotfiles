@@ -15,14 +15,6 @@ function optional_add_to_path {
   fi
 }
 
-# Creates an alias when the binary exists
-function optional_alias {
-  if [ -x "$(command -v $2)" ]
-  then
-    alias $1="$2"
-  fi
-}
-
 # ====================
 # Basic path setup
 # ====================
@@ -86,8 +78,6 @@ alias vim="nvim"
 alias l="ls -lah --group-directories-first"
 alias la="ls -lAhv --group-directories-first"
 alias ll="ls -lh --group-directories-first"
-
-optional_alias fd fdfind
 
 # ==================
 # Development
