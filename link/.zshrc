@@ -69,6 +69,10 @@ fi
 # Set keyboard layout
 setxkbmap eu
 
+# Move through command line prompt by word
+bindkey '^f' forward-word
+bindkey '^b' backward-word
+
 # ==================
 # Alias
 # ==================
@@ -114,6 +118,9 @@ add_to_path $HOME/.pyenv/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# poetry
+add_to_path $HOME/.poetry/bin
 
 # cuda
 optional_add_to_path /usr/local/cuda/bin
