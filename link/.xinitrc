@@ -4,7 +4,6 @@ userresources=$HOME/.Xresources
 sysresources=/etc/X11/xinit/.Xresources
 
 # merge in defaults
-
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi
@@ -14,7 +13,6 @@ if [ -f "$userresources" ]; then
 fi
 
 # start redshift and screensaver in the background
-
 # exec redshift &
 exec xscreensaver -no-splash &
 
