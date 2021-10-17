@@ -1,4 +1,4 @@
-rofi.combi-modi:    window,drun,ssh
+rofi.combi-modi:    window,run,ssh
 rofi.theme:         gruvbox-common
 rofi.font:          IBM Plex Mono 11
 rofi.modi:          combi
