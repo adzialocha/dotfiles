@@ -1,7 +1,4 @@
 .netrwhist
 
 # plugins
-autoload
-bundle
-plugged
-spell
+plugin
