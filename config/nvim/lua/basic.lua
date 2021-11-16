@@ -25,6 +25,9 @@ set.mouse = 'a'
 set.swapfile = false
 set.backup = false
 
+-- Always leave gutter open
+set.signcolumn = 'yes'
+
 --
 -- Color and syntax
 --

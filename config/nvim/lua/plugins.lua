@@ -35,8 +35,8 @@ return require('packer').startup(function()
   use 'hoob3rt/lualine.nvim'
 
   -- Things you can do with fzf and Vim.
-  use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  use {'junegunn/fzf.vim'}
+  use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+  use { 'junegunn/fzf.vim' }
 
   -- The goal of nvim-treesitter is both to provide a simple and easy way to
   -- use the interface for tree-sitter in Neovim and to provide some basic
@@ -60,6 +60,16 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
 
-  -- use 'simrat39/rust-tools.nvim'
+  -- Extra rust tools for writing applications in neovim using the native lsp.
+  -- This plugin adds extra functionality over rust analyzer.
+  use {
+    'simrat39/rust-tools.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    }
+  }
+
+  -- A light-weight lsp plugin based on neovim built-in lsp with highly a
+  -- performant UI.
   use 'glepnir/lspsaga.nvim'
 end)

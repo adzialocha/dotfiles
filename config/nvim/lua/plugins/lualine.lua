@@ -22,7 +22,7 @@ vim.g.lightline = {
      lualine_b = {'branch'},
      lualine_c = {'filename'},
      lualine_x = {},
-     lualine_y = {},
+     lualine_y = {{"diagnostics", sources = {"nvim_lsp"}}},
      lualine_z = {'location'}
    },
    inactive_sections = {

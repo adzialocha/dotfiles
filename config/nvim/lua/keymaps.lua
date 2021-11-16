@@ -40,3 +40,11 @@ map {'', '<C-l>', '<C-W>l', noremap = false}
 map {'n', ';', ':Buffers<CR>', noremap = false}
 map {'n', '<Leader>t', ':Files<CR>', noremap = false}
 map {'n', '<Leader>f', ':Files ~<CR>', noremap = false}
+
+-- LSP Saga
+map {'n', 'gh', ':Lspsaga lsp_finder<CR>'}
+map {'n', 'K', ':Lspsaga hover_doc<CR>'}
+map {'n', 'gd', ':Lspsaga preview_definition<CR>', noremap = false}
+map {'n', '<C-j>', ':Lspsaga diagnostic_jump_next<CR>', noremap = false}
+map {'n', '<C-k>', ':Lspsaga diagnostic_jump_prev<CR>', noremap = false}
+map {'n', 'cd', ':Lspsaga show_line_diagnostics<CR>', noremap = false}

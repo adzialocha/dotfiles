@@ -9,39 +9,45 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-  local opts = { noremap = true, silent = true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+-- Do not show inline diagnostics and do not underline them
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = false,
+    signs = true,
+    underline = false,
+    update_in_insert = false,
+})
+
 -- rust_analyzer
 nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  }
 }
 
 -- tsserver
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {'typescript', 'typescriptreact', 'typescript.tsx'}
+  filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+  flags = {
+    debounce_text_changes = 150,
+  }
 }
 
 -- eslint
 nvim_lsp.eslint.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  }
 }
