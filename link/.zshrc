@@ -109,9 +109,6 @@ eval "$(pyenv virtualenv-init -)"
 # poetry
 add_to_path $HOME/.poetry/bin
 
-# cuda
-optional_add_to_path /usr/local/cuda/bin
-
 # ruby
 export GEM_HOME="$HOME/.gems"
 add_to_path $GEM_HOME/bin
@@ -120,3 +117,6 @@ add_to_path $GEM_HOME/bin
 export N_PREFIX=$HOME/.n
 export N_PRESERVE_NPM=1
 add_to_path $N_PREFIX/bin
+
+# cuda
+optional_add_to_path /usr/local/cuda/bin
