@@ -41,10 +41,10 @@ map {'n', ';', ':Buffers<CR>', noremap = false}
 map {'n', '<Leader>t', ':Files<CR>', noremap = false}
 map {'n', '<Leader>f', ':Files ~<CR>', noremap = false}
 
--- LSP Saga
-map {'n', 'gh', ':Lspsaga lsp_finder<CR>'}
-map {'n', 'K', ':Lspsaga hover_doc<CR>'}
-map {'n', 'gd', ':Lspsaga preview_definition<CR>', noremap = false}
-map {'n', '<C-j>', ':Lspsaga diagnostic_jump_next<CR>', noremap = false}
-map {'n', '<C-k>', ':Lspsaga diagnostic_jump_prev<CR>', noremap = false}
-map {'n', 'cd', ':Lspsaga show_line_diagnostics<CR>', noremap = false}
+-- lsp
+map {'n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>'}
+map {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'}
+map {'n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>'}
+map {'n', 'cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>'}
+map {'n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}
+map {'n', '<C-k>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}

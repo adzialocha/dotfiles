@@ -10,7 +10,6 @@ require('plugins')
 -- Custom plugin configurations
 require('plugins.cmp')
 require('plugins.lspconfig')
-require('plugins.lspsaga')
 require('plugins.lualine')
 require('plugins.rust-tools')
 require('plugins.treesitter')

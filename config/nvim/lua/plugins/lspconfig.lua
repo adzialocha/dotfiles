@@ -8,7 +8,6 @@ local on_attach = function(client, bufnr)
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -22,32 +21,47 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     signs = true,
     underline = false,
     update_in_insert = false,
-})
+  }
+)
+
+-- Default flags
+flags = {
+  debounce_text_changes = 150,
+}
 
 -- rust_analyzer
 nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 150,
-  }
+  flags = flags,
 }
 
 -- tsserver
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = flags,
   filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
-  flags = {
-    debounce_text_changes = 150,
-  }
 }
 
 -- eslint
 nvim_lsp.eslint.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 150,
-  }
+  flags = flags,
 }
+
+-- Change gutter signs
+local signs = { Error = "> ", Warn = "- ", Hint = "- ", Info = "- " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- Make floating window styling consistent
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or 'single'
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end

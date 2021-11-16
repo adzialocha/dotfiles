@@ -14,3 +14,7 @@ hi MatchParen cterm=underline ctermbg=none ctermfg=blue
 
 " Nice looking search highlighting
 hi Search cterm=none ctermfg=black ctermbg=yellow
+
+" Adjust floating windows to look like the rest
+hi FloatBorder ctermfg=darkgrey ctermbg=darkgrey
+hi NormalFloat ctermfg=lightgrey ctermbg=darkgrey

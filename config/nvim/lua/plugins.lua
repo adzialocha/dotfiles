@@ -68,8 +68,4 @@ return require('packer').startup(function()
       'nvim-lua/plenary.nvim',
     }
   }
-
-  -- A light-weight lsp plugin based on neovim built-in lsp with highly a
-  -- performant UI.
-  use 'glepnir/lspsaga.nvim'
 end)
