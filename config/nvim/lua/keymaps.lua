@@ -1,50 +1,32 @@
--- Helper method to make keybindings non-recursive and create them with given
--- defaults
-local map = function(key)
-  -- Get the extra options
-  local opts = {noremap = true}
-  for i, v in pairs(key) do
-    if type(i) == 'string' then opts[i] = v end
-  end
-
-  -- Basic support for buffer-scoped keybindings
-  local buffer = opts.buffer
-  opts.buffer = nil
-
-  if buffer then
-    vim.api.nvim_buf_set_keymap(0, key[1], key[2], key[3], opts)
-  else
-    vim.api.nvim_set_keymap(key[1], key[2], key[3], opts)
-  end
-end
+local utils = require("utils")
 
 -- Select and sort paragraph
-map {'n', '<Leader>i', 'vip:sort<CR>', noremap = false}
+utils.map {'n', '<Leader>i', 'vip:sort<CR>', noremap = false}
 
 -- Switch between current/previous buffer
-map {'n', '<C-e>', ':e#<CR>', noremap = false}
+utils.map {'n', '<C-e>', ':e#<CR>', noremap = false}
 
 -- Move in command line as we know it from the terminal
-map {'c', '<C-a>', '<Home>'}
-map {'c', '<C-d>', '<Delete>'}
-map {'c', '<C-b>', '<S-Left>'}
-map {'c', '<C-f>', '<S-Right>'}
+utils.map {'c', '<C-a>', '<Home>'}
+utils.map {'c', '<C-d>', '<Delete>'}
+utils.map {'c', '<C-b>', '<S-Left>'}
+utils.map {'c', '<C-f>', '<S-Right>'}
 
 -- Window movement shortcuts
-map {'', '<C-j>', '<C-W>j', noremap = false}
-map {'', '<C-k>', '<C-W>k', noremap = false}
-map {'', '<C-h>', '<C-W>h', noremap = false}
-map {'', '<C-l>', '<C-W>l', noremap = false}
+utils.map {'', '<C-j>', '<C-W>j', noremap = false}
+utils.map {'', '<C-k>', '<C-W>k', noremap = false}
+utils.map {'', '<C-h>', '<C-W>h', noremap = false}
+utils.map {'', '<C-l>', '<C-W>l', noremap = false}
 
 -- FZF Search
-map {'n', ';', ':Buffers<CR>', noremap = false}
-map {'n', '<Leader>t', ':Files<CR>', noremap = false}
-map {'n', '<Leader>f', ':Files ~<CR>', noremap = false}
+utils.map {'n', ';', ':Buffers<CR>', noremap = false}
+utils.map {'n', '<Leader>t', ':Files<CR>', noremap = false}
+utils.map {'n', '<Leader>f', ':Files ~<CR>', noremap = false}
 
 -- lsp
-map {'n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>'}
-map {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'}
-map {'n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>'}
-map {'n', 'cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>'}
-map {'n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}
-map {'n', '<C-k>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}
+utils.map {'n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>'}
+utils.map {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'}
+utils.map {'n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>'}
+utils.map {'n', 'cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>'}
+utils.map {'n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}
+utils.map {'n', '<C-k>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}

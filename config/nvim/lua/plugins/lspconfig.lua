@@ -1,33 +1,24 @@
 local nvim_lsp = require('lspconfig')
+local utils = require('utils')
 
--- Use an on_attach function to only map the following keys after the language
--- server attaches to the current buffer
+-- Default on_attach function
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  utils.map { buffer = bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc' }
 end
 
--- Add additional capabilities supported by nvim-cmp
+-- Default capabilities with nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Do not show inline diagnostics and do not underline them
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
-    signs = true,
-    underline = false,
-    update_in_insert = false,
-  }
-)
-
 -- Default flags
-flags = {
+local flags = {
   debounce_text_changes = 150,
 }
+
+-------------
+-- Servers --
+-------------
 
 -- rust_analyzer
 nvim_lsp.rust_analyzer.setup {
@@ -45,10 +36,17 @@ nvim_lsp.tsserver.setup {
 
 -- eslint
 nvim_lsp.eslint.setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    utils.map { buffer = bufnr, 'n', 'gf', '<cmd>EslintFixAll<CR>' }
+    on_attach(client, bufnr)
+  end,
   capabilities = capabilities,
   flags = flags,
 }
+
+-------------
+-- Styling --
+-------------
 
 -- Change gutter signs
 local signs = { Error = "> ", Warn = "- ", Hint = "- ", Info = "- " }
@@ -64,3 +62,13 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or 'single'
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+-- Do not show inline diagnostics and do not underline them
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+}
+)
