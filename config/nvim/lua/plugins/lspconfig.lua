@@ -4,7 +4,7 @@ local utils = require('utils')
 -- Default on_attach function
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  utils.map { buffer = bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc' }
+  utils.map { buffer = bufnr, 'n', 'omnifunc', 'v:lua.vim.lsp.omnifunc' }
 end
 
 -- Default capabilities with nvim-cmp
