@@ -26,3 +26,9 @@ This repository organizes more fine-grained configurations for dedicated machine
 * [`n`](https://github.com/tj/n) NodeJS Version Management
 * [`poetry`](https://github.com/python-poetry/poetry) Dependency Management for Python
 * [`pyenv`](https://github.com/pyenv/pyenv) and [`pyenv-virtualenv`](https://github.com/pyenv/pyenv-virtualenv) Python Version Management
+
+## Language Servers
+
+* [`vscode-langservers-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted) Eslint
+* [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server) TypeScript
+* [`rust_analyzer`](https://github.com/rust-analyzer/rust-analyzer) Rust
