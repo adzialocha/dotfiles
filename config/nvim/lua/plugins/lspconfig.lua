@@ -41,7 +41,6 @@ nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
-  filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
 }
 
 -- eslint
