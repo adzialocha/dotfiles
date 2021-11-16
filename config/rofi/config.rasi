@@ -1,0 +1,11 @@
+configuration {
+  combi-modi: "window,run,ssh";
+  font: "IBM Plex Mono 11";
+  theme: "gruvbox-common";
+  modi: "combi";
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+}
