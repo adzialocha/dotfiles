@@ -24,7 +24,7 @@ utils.map {'n', '<Leader>t', ':Files<CR>', noremap = false}
 utils.map {'n', '<Leader>f', ':Files ~<CR>', noremap = false}
 
 -- lsp
-utils.map {'n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>'}
+utils.map {'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'}
 utils.map {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'}
 utils.map {'n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>'}
 utils.map {'n', 'cd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>'}

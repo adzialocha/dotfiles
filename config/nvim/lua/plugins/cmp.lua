@@ -17,7 +17,8 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'vsnip' },
+    -- Disable snippets for now as I don't use them
+    -- { name = 'vsnip' },
     { name = 'path' },
     { name = 'buffer' },
   }
