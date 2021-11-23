@@ -79,6 +79,9 @@ bindsym Mod1+v split v
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen toggle
 
+# take a screenshot
+bindsym F12 exec "scrot --quality 90 ~/downloads/screenshot-%Y-%m-%dT%H:%M:%S.jpg"
+
 # change container layout (stacked, tabbed, toggle split)
 # bindsym Mod1+s layout stacking
 # bindsym Mod1+w layout tabbed
