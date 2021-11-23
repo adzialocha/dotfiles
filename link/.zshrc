@@ -103,7 +103,7 @@ _fzf_compgen_dir() {
 # pyenv & pyenv-virtualenv
 add_to_path $HOME/.pyenv/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 # poetry
