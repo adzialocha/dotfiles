@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# show-large-folders: Return the 10 folders taking up the most space on the hard-disc
+
+du -ahx . | sort -rh | head -10

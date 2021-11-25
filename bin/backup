@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Backup home folder to a remote address using borg.
+# backup - Backup home folder to a remote address using borg.
 #
 # Setup:
 # ======

@@ -4,7 +4,7 @@
 # and wasm-pack
 
 mkdir -p ~/.local/bin
-echo "Download latest rust-analzer release .."
+echo "Download latest rust-analyzer release .."
 curl --silent -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
 chmod +x ~/.local/bin/rust-analyzer
 
