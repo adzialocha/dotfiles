@@ -22,7 +22,9 @@ require('lualine').setup {
     lualine_b = {'branch'},
     lualine_c = {'filename'},
     lualine_x = {},
-    lualine_y = {{"diagnostics", sources = {"nvim_lsp"}}},
+    lualine_y = {
+      { 'diagnostics', sources = { 'nvim_diagnostic' } }
+    },
     lualine_z = {'location'}
   },
   inactive_sections = {
