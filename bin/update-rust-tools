@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
-# update-rust-tools - Helper script to get the latest version of rust-analyzer
-# and wasm-pack
+# update-rust-tools - Helper script to get the latest version of rust-analyzer,
+# installed cargo executables like wasm-pack and rustc
 
+echo "◆ Download latest rust-analyzer release"
 mkdir -p ~/.local/bin
-echo "Download latest rust-analyzer release .."
 curl --silent -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
 chmod +x ~/.local/bin/rust-analyzer
-
 echo "Updated $(rust-analyzer --version) successfully."
 
 echo ""
-echo "Download latest wasm-pack release .."
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-echo "Updated $(wasm-pack --version) successfully."
+echo "◆ Update stable Rust toolchains"
+rustup update stable
+
+echo ""
+echo "◆ Update installed cargo executables"
+cargo install-update -a
