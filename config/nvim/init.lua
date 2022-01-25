@@ -14,6 +14,9 @@ require('plugins.lualine')
 require('plugins.rust-tools')
 require('plugins.treesitter')
 
+-- Custom FZF configuration
+vim.cmd 'source ~/.config/nvim/fzf.vim'
+
 -- Initialize color scheme
 vim.cmd 'source ~/.config/nvim/theme.vim'
 
