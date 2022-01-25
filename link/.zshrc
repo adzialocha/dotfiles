@@ -109,9 +109,8 @@ eval "$(pyenv virtualenv-init -)"
 # poetry
 add_to_path $HOME/.poetry/bin
 
-# ruby
-export GEM_HOME="$HOME/.gems"
-add_to_path $GEM_HOME/bin
+# rvm
+source $HOME/.rvm/scripts/rvm
 
 # n
 export N_PREFIX=$HOME/.n
