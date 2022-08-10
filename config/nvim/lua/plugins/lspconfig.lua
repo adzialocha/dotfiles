@@ -25,6 +25,14 @@ nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
+  -- @TODO: Can't make this work ..
+  -- settings = {
+  --   ['rust-analyzer'] = {
+  --     cargo = {
+  --       target = 'wasm32-unknown-unknown'
+  --     }
+  --   }
+  -- }
 }
 
 -- tsserver
@@ -40,6 +48,13 @@ nvim_lsp.eslint.setup {
     utils.map { buffer = bufnr, 'n', 'gf', '<cmd>EslintFixAll<CR>' }
     on_attach(client, bufnr)
   end,
+  capabilities = capabilities,
+  flags = flags,
+}
+
+-- python
+nvim_lsp.pylsp.setup {
+  on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
 }

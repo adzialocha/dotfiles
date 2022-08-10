@@ -1,17 +1,20 @@
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
-    'tsx',
+    'html',
+    'javascript',
+    'jsdoc',
+    'json',
+    'markdown',
+    'python',
     'rust',
     'scss',
-    'json',
-    'html',
+    'toml',
+    'tsx',
     'typescript',
-    'python',
-    'javascript'
+    'yaml',
   },
   highlight = {
     enable = true,
-    disable = {},
   },
 }
 
