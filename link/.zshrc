@@ -85,6 +85,7 @@ alias ll="ls -lh --group-directories-first"
 add_to_path $HOME/.cargo/bin
 
 # fzf
+export FZF_PREVIEW_COMMAND="cat {}"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -101,16 +102,16 @@ _fzf_compgen_dir() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pyenv & pyenv-virtualenv
-add_to_path $HOME/.pyenv/bin
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+# add_to_path $HOME/.pyenv/bin
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# eval "$(pyenv init --path)"
+# eval "$(pyenv virtualenv-init -)"
 
 # poetry
-add_to_path $HOME/.poetry/bin
+# add_to_path $HOME/.poetry/bin
 
 # rvm
-source $HOME/.rvm/scripts/rvm
+# source $HOME/.rvm/scripts/rvm
 
 # n
 export N_PREFIX=$HOME/.n
@@ -118,4 +119,4 @@ export N_PRESERVE_NPM=1
 add_to_path $N_PREFIX/bin
 
 # cuda
-optional_add_to_path /usr/local/cuda/bin
+# optional_add_to_path /usr/local/cuda/bin
