@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# panda - Jump into the panda onion
+
+TARGET="${1:-rs}"
+
+cd "$HOME/dev/p2panda/p2panda/p2panda-$TARGET"

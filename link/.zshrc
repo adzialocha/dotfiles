@@ -76,6 +76,9 @@ alias l="ls -lah --group-directories-first"
 alias la="ls -lAhv --group-directories-first"
 alias ll="ls -lh --group-directories-first"
 
+# p2panda development directory shortcut
+alias panda=". panda"
+
 # ==================
 # Development
 # ==================
