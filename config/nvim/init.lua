@@ -11,7 +11,6 @@ require('plugins')
 require('plugins.cmp')
 require('plugins.lspconfig')
 require('plugins.lualine')
-require('plugins.rust-tools')
 require('plugins.treesitter')
 
 -- Custom FZF configuration

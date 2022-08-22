@@ -59,13 +59,4 @@ return require('packer').startup(function()
   -- VSCode(LSP)'s snippet feature in vim.
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
-
-  -- Extra rust tools for writing applications in neovim using the native lsp.
-  -- This plugin adds extra functionality over rust analyzer.
-  use {
-    'simrat39/rust-tools.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-    }
-  }
 end)

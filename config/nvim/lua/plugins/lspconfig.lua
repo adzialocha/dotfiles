@@ -25,14 +25,15 @@ nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
-  -- @TODO: Can't make this work ..
-  -- settings = {
-  --   ['rust-analyzer'] = {
-  --     cargo = {
-  --       target = 'wasm32-unknown-unknown'
-  --     }
-  --   }
-  -- }
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        features = "all"
+        -- WebAssembly development
+        -- target = "wasm32-unknown-unknown"
+      }
+    }
+  }
 }
 
 -- tsserver
