@@ -40,7 +40,6 @@ ZSH_CUSTOM=$HOME/.config/zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
-  cp
   git
 )
 
