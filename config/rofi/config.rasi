@@ -45,7 +45,7 @@ configuration {
 }
 
 window {
-    font:             "IBM Plex Mono 12";
+    font:             "IBM Plex Mono 11";
     background-color: @background;
     border:           0;
     padding:          10;
