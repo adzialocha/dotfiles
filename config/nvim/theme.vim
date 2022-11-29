@@ -16,5 +16,5 @@ hi MatchParen cterm=underline ctermbg=none ctermfg=blue
 hi Search cterm=none ctermfg=black ctermbg=yellow
 
 " Adjust floating windows to look like the rest
-hi FloatBorder ctermfg=darkgrey ctermbg=darkgrey
-hi NormalFloat ctermfg=lightgrey ctermbg=darkgrey
+hi FloatBorder ctermfg=darkgrey ctermbg=black
+hi NormalFloat ctermfg=lightgrey ctermbg=black
