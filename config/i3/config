@@ -14,6 +14,7 @@ for_window [class=".*"] title_format " %title"
 new_window none
 
 default_border pixel 1
+default_floating_border pixel 1
 hide_edge_borders both
 
 # class                 border  backgr. text    indicator child_border
@@ -29,9 +30,6 @@ client.background       #2d2d2d
 # Start the program launcher
 bindsym Mod1+space exec rofi -show run
 bindsym Mod1+Tab exec rofi -show window
-
-# use Mouse+Mod1 to drag floating windows to their wanted position
-# floating_modifier Mod1
 
 # start a terminal
 bindsym Mod1+Return exec alacritty
@@ -88,7 +86,10 @@ bindsym F12 exec "scrot --quality 90 ~/downloads/screenshot-%Y-%m-%dT%H:%M:%S.jp
 # bindsym Mod1+e layout toggle split
 
 # toggle tiling / floating
-# bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+Shift+space "floating toggle; [tiling con_id=__focused__] border none [floating con_id=__focused__] border normal; move position center"
+
+# use Mouse+Mod1 to drag floating windows to their wanted position
+floating_modifier Mod1
 
 # change focus between tiling / floating windows
 # bindsym Mod1+space focus mode_toggle
