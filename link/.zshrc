@@ -115,7 +115,7 @@ _fzf_compgen_dir() {
 
 # n
 export N_PREFIX=$HOME/.n
-export N_PRESERVE_NPM=1
+# export N_PRESERVE_NPM=1
 add_to_path $N_PREFIX/bin
 
 # cuda
