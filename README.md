@@ -32,3 +32,7 @@ This repository organizes more fine-grained configurations for dedicated machine
 * [`vscode-langservers-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted) Eslint
 * [`typescript-language-server`](https://github.com/typescript-language-server/typescript-language-server) TypeScript
 * [`rust_analyzer`](https://github.com/rust-analyzer/rust-analyzer) Rust
+
+## NixOS
+
+I've experimented setting up my [configurations for NixOS](https://github.com/adzialocha/nix) but decided to not use it (yet).
