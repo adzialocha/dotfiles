@@ -12,10 +12,9 @@ if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
 fi
 
-# start redshift and screensaver in the background
+# start redshift and xss-lock in the background
 # exec redshift &
-exec xscreensaver -no-splash &
+exec xss-lock -- i3lock -n &
 
 # start i3 window manager
-
 exec i3
