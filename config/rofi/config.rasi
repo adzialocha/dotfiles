@@ -1,6 +1,6 @@
 configuration {
     combi-modi: "window,run,ssh";
-    modi: "combi";
+    modi:       "combi";
 
     timeout {
         action: "kb-cancel";
@@ -12,8 +12,8 @@ configuration {
     highlight: bold;
     scrollbar: false;
 
-    white:          #ffffff;
-    black:          #000000;
+    white: #ffffff;
+    black: #000000;
 
     background:                  @white;
     background-color:            @white;
