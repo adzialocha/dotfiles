@@ -26,7 +26,7 @@ utils.map {'n', '<Leader>f', ':Files ~<CR>', noremap = false}
 -- lsp
 utils.map {'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'}
 utils.map {'n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>'}
-utils.map {'n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>'}
+utils.map {'n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>'}
 utils.map {'n', 'cd', '<cmd>lua vim.diagnostic.open_float()<CR>'}
 utils.map {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'}
 utils.map {'n', '<C-j>', '<cmd>lua vim.diagnostic.goto_prev()<CR>'}
