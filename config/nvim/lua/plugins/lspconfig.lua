@@ -3,6 +3,9 @@ local utils = require('utils')
 
 -- Default on_attach function
 local on_attach = function(client, bufnr)
+  -- Disable syntax highlighting as it looks ugly
+  client.server_capabilities.semanticTokensProvider = nil
+
   -- Enable completion triggered by <c-x><c-o>
   utils.map { buffer = bufnr, 'n', 'omnifunc', 'v:lua.vim.lsp.omnifunc' }
 end
