@@ -118,3 +118,9 @@ _fzf_compgen_dir() {
 # n
 export N_PREFIX=$HOME/.n
 add_to_path $N_PREFIX/bin
+
+# android & flutter
+# add_to_path $HOME/dev/flutter/bin
+# export ANDROID_HOME=$HOME/dev/android/Sdk
+# export JAVA_HOME=/usr/lib/jvm/default
+# export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
