@@ -19,4 +19,4 @@ cargo install-update -a
 
 # Clean up afterwards, some installer moves another `rust-analyzer` here, but
 # it is broken ("not installed for the toolchain" error)
-rm +x ~/.cargo/bin/rust-analyzer
+rm ~/.cargo/bin/rust-analyzer
