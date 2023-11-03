@@ -31,9 +31,14 @@ return require('packer').startup(function()
   -- today.
   use 'tpope/vim-repeat'
 
-  -- Comment text in and out, written in lua. Supports commenting out the
-  -- current line, a visual selection and a motion.
-  use 'b3nj5m1n/kommentary'
+  -- Smart and powerful comment plugin for neovim. Supports treesitter, dot
+  -- repeat, left-right/up-down motions, hooks, and more 
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
 
   -- Support projects .editorconfig files automatically.
   use 'editorconfig/editorconfig-vim'
