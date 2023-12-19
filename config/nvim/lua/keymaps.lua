@@ -32,3 +32,4 @@ utils.map {'n', 'cd', '<cmd>lua vim.diagnostic.open_float()<CR>'}
 utils.map {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'}
 utils.map {'n', '<C-j>', '<cmd>lua vim.diagnostic.goto_prev()<CR>'}
 utils.map {'n', '<C-k>', '<cmd>lua vim.diagnostic.goto_next()<CR>'}
+utils.map {'n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>'}
