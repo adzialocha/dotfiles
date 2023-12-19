@@ -54,8 +54,28 @@ return require('packer').startup(function()
   use 'hoob3rt/lualine.nvim'
 
   -- Things you can do with fzf and Vim.
-  use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  use { 'junegunn/fzf.vim' }
+  -- use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+  -- use { 'junegunn/fzf.vim' }
+
+  -- Highly extendable fuzzy finder over lists.
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+  }
+
+  use {
+    'kelly-lin/telescope-ag',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+  }
+
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+  }
 
   -- The goal of nvim-treesitter is both to provide a simple and easy way to
   -- use the interface for tree-sitter in Neovim and to provide some basic

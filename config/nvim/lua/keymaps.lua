@@ -19,9 +19,9 @@ utils.map {'', '<C-h>', '<C-W>h', noremap = false}
 utils.map {'', '<C-l>', '<C-W>l', noremap = false}
 
 -- FZF Search
-utils.map {'n', ';', ':Buffers<CR>', noremap = false}
-utils.map {'n', '<Leader>t', ':Files<CR>', noremap = false}
-utils.map {'n', '<Leader>f', ':Files ~<CR>', noremap = false}
+utils.map {'n', ';', '<cmd>Telescope buffers<CR>', noremap = false}
+utils.map {'n', '<Leader>t', '<cmd>Telescope find_files<CR>', noremap = false}
+utils.map {'n', '<Leader>f', '<cmd>Telescope live_grep<CR>', noremap = false}
 
 -- lsp
 utils.map {'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'}

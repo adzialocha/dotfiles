@@ -11,10 +11,8 @@ require('plugins')
 require('plugins.cmp')
 require('plugins.lspconfig')
 require('plugins.lualine')
+require('plugins.telescope')
 require('plugins.treesitter')
-
--- Custom FZF configuration
-vim.cmd 'source ~/.config/nvim/fzf.vim'
 
 -- Initialize color scheme
 vim.cmd 'source ~/.config/nvim/theme.vim'
