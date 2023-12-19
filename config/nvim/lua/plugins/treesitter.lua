@@ -17,6 +17,15 @@ require('nvim-treesitter.configs').setup {
     enable = true,
     disable = { 'rust', 'toml' },
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-space>",
+      node_incremental = "<C-space>",
+      scope_incremental = false,
+      node_decremental = "<bs>",
+    },
+  },
 }
 
 local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
