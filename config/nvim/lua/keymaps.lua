@@ -26,7 +26,7 @@ utils.map {'n', ';', '<cmd>Telescope buffers<CR>', noremap = false}
 utils.map {'n', '<Leader>f', '<cmd>Telescope live_grep<CR>', noremap = false}
 utils.map {'n', '<Leader>a', '<cmd>Telescope grep_string<CR>', noremap = false}
 utils.map {'n', '<Leader>s', '<cmd>Telescope treesitter<CR>', noremap = false}
-utils.map {'n', '<Leader>t', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>', noremap = false}
+utils.map {'n', '<Leader>t', '<cmd>Telescope find_files hidden=true no_ignore=false<CR>', noremap = false}
 
 -- lsp
 utils.map {'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'}
