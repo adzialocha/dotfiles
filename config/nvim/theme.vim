@@ -18,3 +18,12 @@ hi Search cterm=none ctermfg=black ctermbg=yellow
 " Adjust floating windows to look like the rest
 hi FloatBorder ctermfg=darkgrey ctermbg=black
 hi NormalFloat ctermfg=lightgrey ctermbg=black
+
+" Make telescope look like like the rest
+hi TelescopeBorder ctermfg=darkgrey ctermbg=none
+hi TelescopeMatching ctermfg=black ctermbg=yellow
+hi TelescopePreviewLine ctermfg=black ctermbg=lightgrey
+hi TelescopePreviewMatch ctermfg=black ctermbg=yellow
+hi TelescopePromptCounter ctermfg=darkgrey ctermbg=none
+hi TelescopePromptPrefix ctermfg=darkgrey ctermbg=none
+hi TelescopeSelection ctermfg=black ctermbg=lightgrey

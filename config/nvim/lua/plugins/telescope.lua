@@ -1,7 +1,10 @@
 local telescope = require('telescope')
-local layout_strategies = require('telescope.pickers.layout_strategies')
-local actions = require('telescope.actions')
 
+local actions = require('telescope.actions')
+local layout_strategies = require('telescope.pickers.layout_strategies')
+local previewers = require("telescope.previewers")
+
+-- Custom layout with all titles removed
 layout_strategies.custom = function(picker, max_columns, max_lines, layout_config)
   local layout = layout_strategies.horizontal(picker, max_columns, max_lines, layout_config)
   layout.results.title = ''
@@ -10,23 +13,26 @@ layout_strategies.custom = function(picker, max_columns, max_lines, layout_confi
   return layout
 end
 
+-- Custom previewer since we don't want syntax highlighting
+local custom_previewer_maker = function(filepath, bufnr, opts)
+  opts.use_ft_detect = false
+  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+end
+
 telescope.setup {
   defaults = {
     layout_strategy = 'custom',
+    buffer_previewer_maker = custom_previewer_maker,
     preview = {
       check_mime_type = false,
-      treesitter = false,
     },
     mappings = {
       i = {
+        -- We don't want to press ESC twice to exit in insert-mode
         ['<esc>'] = actions.close
       },
     },
-    -- vimgrep_arguments = {
-    --   'ag'
-    -- },
   },
 }
 
-telescope.load_extension('ag')
 telescope.load_extension('fzf')

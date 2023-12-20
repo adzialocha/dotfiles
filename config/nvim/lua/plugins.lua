@@ -53,28 +53,20 @@ return require('packer').startup(function()
   -- Fast and easy to configure neovim statusline written in pure lua.
   use 'hoob3rt/lualine.nvim'
 
-  -- Things you can do with fzf and Vim.
-  -- use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  -- use { 'junegunn/fzf.vim' }
-
   -- Highly extendable fuzzy finder over lists.
   use {
     'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
     requires = {
       'nvim-lua/plenary.nvim',
     },
   }
 
-  use {
-    'kelly-lin/telescope-ag',
-    requires = {
-      'nvim-telescope/telescope.nvim',
-    },
-  }
-
+  -- fzf-native is a c port of fzf. It only covers the algorithm and implements
+  -- few functions to support calculating the score.
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    run = 'make',
   }
 
   -- The goal of nvim-treesitter is both to provide a simple and easy way to
