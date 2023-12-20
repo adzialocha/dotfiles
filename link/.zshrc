@@ -19,20 +19,20 @@ function optional_add_to_path {
 # Basic path setup
 # ====================
 
-# Add dotfiles bin and brew path.
+# Add dotfiles and local bin paths
 add_to_path $HOME/.dotfiles/bin
 add_to_path $HOME/.local/bin
 add_to_path /usr/local/sbin
 add_to_path /usr/local/bin
 
-# Path to our oh-my-zsh installation.
+# Path to our oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
 # ====================
 # Oh my zsh config
 # ====================
 
-# Set name of the theme to load.
+# Set name of the theme to load
 ZSH_THEME="adz-custom"
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -66,6 +66,9 @@ setxkbmap eu
 bindkey '^f' forward-word
 bindkey '^b' backward-word
 
+# Conveniently delete word in command line prompt
+bindkey '^x' delete-word
+
 # ==================
 # Alias
 # ==================
@@ -80,29 +83,39 @@ alias ll="ls -lh --group-directories-first"
 alias panda=". panda"
 
 # ==================
+# Applications
+# ==================
+
+# flatpak
+add_to_path /var/lib/flatpak/exports/share
+add_to_path $HOME/.local/share/flatpak/exports/share
+
+# fzf
+export FZF_DEFAULT_OPTS="
+  --height 30%
+  --reverse
+  --color bg:-1,bg+:-1,hl:15,hl+:11,fg:-1,fg+:15
+  --color border:0,spinner:8,header:0,info:8
+  --color pointer:15,marker:15,prompt:12
+"
+export FZF_DEFAULT_COMMAND="fd --type f --follow"
+export FZF_PREVIEW_COMMAND="cat {}"
+
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+# ==================
 # Development
 # ==================
 
 # Rust
 add_to_path $HOME/.cargo/bin
 
-# fzf
-export FZF_PREVIEW_COMMAND="cat {}"
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# n
+export N_PREFIX=$HOME/.n
+add_to_path $N_PREFIX/bin
 
-# Use fd listing path candidates
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+# ==================
 
 # pyenv & pyenv-virtualenv
 # add_to_path $HOME/.pyenv/bin
@@ -116,10 +129,6 @@ _fzf_compgen_dir() {
 # rvm
 # source $HOME/.rvm/scripts/rvm
 
-# n
-export N_PREFIX=$HOME/.n
-add_to_path $N_PREFIX/bin
-
 # dart
 # add_to_path $HOME/.pub-cache/bin
 
@@ -129,7 +138,3 @@ add_to_path $N_PREFIX/bin
 # export ANDROID_HOME=$HOME/dev/android/Sdk
 # export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 # export JAVA_HOME=/usr/lib/jvm/default
-
-# flatpack
-add_to_path /var/lib/flatpak/exports/share
-add_to_path $HOME/.local/share/flatpak/exports/share
