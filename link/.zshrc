@@ -7,12 +7,9 @@ function add_to_path {
   esac
 }
 
-# Uses `add_to_path` function but makes sure the to-be-added path really exists
-function optional_add_to_path {
-  if [ -d $1 ]
-  then
-    add_to_path $1
-  fi
+# Sources a file when it exists
+function source_if_exists {
+  [ -f $1 ] && source $1
 }
 
 # ====================
@@ -101,8 +98,8 @@ export FZF_DEFAULT_OPTS="
 export FZF_DEFAULT_COMMAND="fd --type f --follow"
 export FZF_PREVIEW_COMMAND="cat {}"
 
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+source_if_exists /usr/share/fzf/key-bindings.zsh
+source_if_exists /usr/share/fzf/completion.zsh
 
 # ==================
 # Development
@@ -127,7 +124,7 @@ add_to_path $N_PREFIX/bin
 # add_to_path $HOME/.poetry/bin
 
 # rvm
-# source $HOME/.rvm/scripts/rvm
+# source_if_exists $HOME/.rvm/scripts/rvm
 
 # dart
 # add_to_path $HOME/.pub-cache/bin
@@ -138,3 +135,7 @@ add_to_path $N_PREFIX/bin
 # export ANDROID_HOME=$HOME/dev/android/Sdk
 # export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 # export JAVA_HOME=/usr/lib/jvm/default
+
+# go
+add_to_path $(go env GOBIN)
+add_to_path $(go env GOPATH)/bin
