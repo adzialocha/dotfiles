@@ -6,7 +6,7 @@ My personal configuration files for Linux.
 
 This repository organizes more fine-grained configurations for dedicated machines per branches:
 
-* `laptop` ThinkPad X230, Arch Linux
+* `laptop` ThinkPad X230 & ThinkPad X1 Carbon Gen 4, Arch Linux
 * [`desktop`](https://github.com/adzialocha/dotfiles/compare/desktop) Desktop Computer, Arch Linux
 
 ## Used software
