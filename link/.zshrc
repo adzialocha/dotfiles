@@ -137,5 +137,5 @@ add_to_path $N_PREFIX/bin
 # export JAVA_HOME=/usr/lib/jvm/default
 
 # go
-add_to_path $(go env GOBIN)
-add_to_path $(go env GOPATH)/bin
+# add_to_path $(go env GOBIN)
+# add_to_path $(go env GOPATH)/bin
