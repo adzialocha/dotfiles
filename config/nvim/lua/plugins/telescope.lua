@@ -21,7 +21,8 @@ end
 
 telescope.setup {
   defaults = {
-    layout_strategy = 'custom',
+    -- @TODO: Using this breaks the plugin sometimes
+    -- layout_strategy = 'custom',
     buffer_previewer_maker = custom_previewer_maker,
     preview = {
       check_mime_type = false,
