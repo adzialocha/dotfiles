@@ -28,7 +28,7 @@ client.background       #2d2d2d
 # --------------------------------------------------------------------
 
 # Start the program launcher
-bindsym Mod1+space exec rofi -show run
+bindsym Mod1+space exec rofi -show drun
 bindsym Mod1+Tab exec rofi -show window
 
 # start a terminal
