@@ -86,7 +86,7 @@ bindsym F12 exec "scrot --quality 90 ~/downloads/screenshot-%Y-%m-%dT%H:%M:%S.jp
 # bindsym Mod1+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Shift+space "floating toggle; [tiling con_id=__focused__] border none [floating con_id=__focused__] border normal; move position center"
+bindsym Mod1+Shift+space "floating toggle; [tiling con_id=__focused__] border none [floating con_id=__focused__] border normal; move position center; resize set 1200 900"
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
