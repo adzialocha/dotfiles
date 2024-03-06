@@ -84,8 +84,8 @@ alias panda=". panda"
 # ==================
 
 # flatpak
-add_to_path /var/lib/flatpak/exports/share
-add_to_path $HOME/.local/share/flatpak/exports/share
+add_to_path /var/lib/flatpak/exports/share/applications
+add_to_path $HOME/.local/share/flatpak/exports/share/applications
 
 # fzf
 export FZF_DEFAULT_OPTS="
