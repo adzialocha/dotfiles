@@ -46,9 +46,7 @@ style = "Regular"
 x = 1
 y = 1
 
-[window.padding]
-x = 5
-y = 0
-
-[selection]
-save_to_clipboard = true
+[[keyboard.bindings]]
+key = "Return"
+mods = "Control|Shift"
+action = "SpawnNewInstance"
