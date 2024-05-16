@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# unzip-all - Unzip all .zip files in current folder
+
+for z in *.zip; do 
+  target_dir="${z/.zip/}"
+  unzip "$z" -d "./$target_dir"
+done
