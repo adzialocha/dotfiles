@@ -1,14 +1,3 @@
-vim.g.lightline = {
-  colorscheme = 'seoul256',
-  active = {
-    left = {{ 'mode', 'paste' }, { 'filename', 'modified' }},
-    right = {{ 'lineinfo' }, { 'readonly' }}
-  },
-  component_type = {
-    readonly = 'error',
-  },
-}
-
 require('lualine').setup {
   options = {
     icons_enabled = false,

@@ -38,6 +38,9 @@ set.background = 'dark'
 -- Enable syntax highlight
 vim.cmd('syntax enable')
 
+-- Since neovim 0.10.0 this is enabled by default
+set.termguicolors = false
+
 --
 -- Searching
 --

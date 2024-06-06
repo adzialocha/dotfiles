@@ -1,3 +1,9 @@
+-- Initialize color scheme
+vim.cmd 'source ~/.config/nvim/theme.vim'
+
+-- Alias commands
+vim.cmd 'source ~/.config/nvim/alias.vim'
+
 -- General editor configurations
 require('basic')
 
@@ -13,9 +19,3 @@ require('plugins.lspconfig')
 require('plugins.lualine')
 require('plugins.telescope')
 require('plugins.treesitter')
-
--- Initialize color scheme
-vim.cmd 'source ~/.config/nvim/theme.vim'
-
--- Alias commands
-vim.cmd 'source ~/.config/nvim/alias.vim'

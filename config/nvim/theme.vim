@@ -1,3 +1,7 @@
+" Workaround to continue using colors from terminal 
+" instead of new neovim 0.10.0 default theme
+source $VIMRUNTIME/colors/vim.lua
+
 " Show whitespace chars & assign to color group
 set list listchars=trail:.,extends:>
 match Whitespace /\s/
