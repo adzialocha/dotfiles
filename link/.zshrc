@@ -129,12 +129,14 @@ add_to_path $N_PREFIX/bin
 # dart
 # add_to_path $HOME/.pub-cache/bin
 
+# java
+# export JAVA_HOME=/usr/lib/jvm/default
+
 # android & flutter
 # add_to_path $HOME/dev/flutter/bin
 # add_to_path $HOME/dev/android/Sdk/platform-tools
 # export ANDROID_HOME=$HOME/dev/android/Sdk
 # export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-# export JAVA_HOME=/usr/lib/jvm/default
 
 # go
 # add_to_path $(go env GOBIN)
