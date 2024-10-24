@@ -39,7 +39,7 @@ nvim_lsp.rust_analyzer.setup {
 }
 
 -- tsserver
-nvim_lsp.tsserver.setup {
+nvim_lsp.ts_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
