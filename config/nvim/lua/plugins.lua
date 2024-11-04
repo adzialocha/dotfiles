@@ -53,6 +53,10 @@ return require('packer').startup(function()
   -- Fast and easy to configure neovim statusline written in pure lua.
   use 'hoob3rt/lualine.nvim'
 
+  -- Information provided by active lsp clients from the $/progress endpoint as
+  -- a statusline component for lualine.nvim.
+  use 'arkav/lualine-lsp-progress'
+
   -- Highly extendable fuzzy finder over lists.
   use {
     'nvim-telescope/telescope.nvim',
