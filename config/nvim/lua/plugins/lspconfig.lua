@@ -46,7 +46,6 @@ vim.lsp.config['rust_analyzer'] = {
         },
       },
       diagnostics = {
-        features = "all",
         styleLints = {
           enable = true,
         },
