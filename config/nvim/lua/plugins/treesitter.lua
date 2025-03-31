@@ -2,6 +2,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = {
     'css',
     'html',
+    'java',
     'javascript',
     'jsdoc',
     'json',
@@ -10,6 +11,7 @@ require('nvim-treesitter.configs').setup {
     'python',
     'rust',
     'scss',
+    'svelte',
     'toml',
     'tsx',
     'typescript',

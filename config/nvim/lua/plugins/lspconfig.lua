@@ -47,6 +47,7 @@ nvim_lsp.rust_analyzer.setup {
         },
       },
       diagnostics = {
+        features = "all",
         styleLints = {
           enable = true,
         },
@@ -73,6 +74,13 @@ nvim_lsp.eslint.setup {
     utils.map { buffer = bufnr, 'n', 'gf', '<cmd>EslintFixAll<CR>' }
     on_attach(client, bufnr)
   end,
+  capabilities = capabilities,
+  flags = flags,
+}
+
+-- svelte
+nvim_lsp.svelte.setup {
+  on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
 }
