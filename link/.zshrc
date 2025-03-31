@@ -125,6 +125,7 @@ add_to_path $N_PREFIX/bin
 
 # rvm
 # source_if_exists $HOME/.rvm/scripts/rvm
+# add_to_path $HOME/.rvm/bin
 
 # dart
 # add_to_path $HOME/.pub-cache/bin
