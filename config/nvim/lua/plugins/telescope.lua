@@ -27,6 +27,9 @@ telescope.setup {
     preview = {
       check_mime_type = false,
     },
+    -- @TODO: Disable borders for now as a workaround
+    -- Related issue: https://github.com/nvim-telescope/telescope.nvim/issues/3436
+    -- border = false,
     mappings = {
       i = {
         -- We don't want to press ESC twice to exit in insert-mode

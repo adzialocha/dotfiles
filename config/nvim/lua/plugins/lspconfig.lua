@@ -40,12 +40,26 @@ vim.lsp.config['rust_analyzer'] = {
           },
         },
       },
+      cargo = {
+        features = "all",
+      },
+      check = {
+        allTargets = true,
+        features = "all",
+      },
       hover = {
         memoryLayout = {
+          enable = true,
           niches = true,
         },
       },
+      imports = {
+        merge = {
+          glob = false,
+        },
+      },
       diagnostics = {
+        enable = true,
         styleLints = {
           enable = true,
         },
@@ -57,6 +71,13 @@ vim.lsp.config['rust_analyzer'] = {
 
 -- tsserver
 vim.lsp.config['ts_ls'] = {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = flags,
+}
+
+-- svelte
+nvim_lsp.svelte.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
@@ -94,25 +115,38 @@ vim.lsp.enable('eslint')
 -- Styling --
 -------------
 
--- Change gutter signs
-local signs = { Error = "> ", Warn = "- ", Hint = "- ", Info = "- " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+-- Rounded borders
+local hover = vim.lsp.buf.hover
+vim.lsp.buf.hover = function()
+    return hover({
+        border = "rounded",
+        max_width = math.floor(vim.o.columns * 0.5),
+        -- max_height = math.floor(vim.o.lines * 0.5),
+    })
 end
 
--- Make floating window styling consistent
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or 'single'
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {} 
+  opts.border = opts.border or 'rounded'
+
+  return orig_util_open_floating_preview(contents, syntax, opts, ...) 
 end
 
--- Do not show inline diagnostics and do not underline them
 vim.diagnostic.config({
+  -- Do not show inline diagnostics
   virtual_text = false,
-  signs = true,
+  -- Our custom gutter signs.
+  signs = {
+      text = {
+          [vim.diagnostic.severity.ERROR] = '> ',
+          [vim.diagnostic.severity.WARN] = '- ',
+          [vim.diagnostic.severity.HINT] = '- ',
+          [vim.diagnostic.severity.INFO] = '- ',
+      },
+  },
+  -- Do not underline them
   underline = false,
   update_in_insert = false,
 })

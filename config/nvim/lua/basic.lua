@@ -69,6 +69,9 @@ set.linebreak = true
 -- Make autoindent use same chars as previous line
 set.copyindent = true
 
+-- Rounded borders for all floating windows
+-- vim.o.winborder = 'rounded'
+
 --
 -- Scrolling
 --
