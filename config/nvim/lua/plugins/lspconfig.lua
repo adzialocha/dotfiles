@@ -1,4 +1,3 @@
-local nvim_lsp = require('lspconfig')
 local utils = require('utils')
 
 -- Default on_attach function
@@ -23,7 +22,7 @@ local flags = {
 -------------
 
 -- rust_analyzer
-nvim_lsp.rust_analyzer.setup {
+vim.lsp.config['rust_analyzer'] = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
@@ -52,24 +51,20 @@ nvim_lsp.rust_analyzer.setup {
           enable = true,
         },
       },
-      checkOnSave = {
-        features = "all"
-        -- WebAssembly development
-        -- target = "wasm32-unknown-unknown"
-      }
+      checkOnSave = true,
     }
   }
 }
 
 -- tsserver
-nvim_lsp.ts_ls.setup {
+vim.lsp.config['ts_ls'] = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
 }
 
 -- eslint
-nvim_lsp.eslint.setup {
+vim.lsp.config['eslint'] = {
   on_attach = function(client, bufnr)
     utils.map { buffer = bufnr, 'n', 'gf', '<cmd>EslintFixAll<CR>' }
     on_attach(client, bufnr)
@@ -79,18 +74,22 @@ nvim_lsp.eslint.setup {
 }
 
 -- svelte
-nvim_lsp.svelte.setup {
+vim.lsp.config['svelte'] = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
 }
 
 -- python
-nvim_lsp.pylsp.setup {
+vim.lsp.config['pylsp'] = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = flags,
 }
+
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('eslint')
 
 -------------
 -- Styling --
