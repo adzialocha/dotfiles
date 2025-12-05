@@ -2,6 +2,6 @@
 
 # panda - Jump into the panda onion
 
-TARGET="${1:-rs}"
+TARGET="${1:-core}"
 
 cd "$HOME/dev/p2panda/p2panda/p2panda-$TARGET"
