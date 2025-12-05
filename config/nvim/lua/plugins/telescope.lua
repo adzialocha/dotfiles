@@ -21,15 +21,11 @@ end
 
 telescope.setup {
   defaults = {
-    -- @TODO: Using this breaks the plugin sometimes
-    -- layout_strategy = 'custom',
+    layout_strategy = 'custom',
     buffer_previewer_maker = custom_previewer_maker,
     preview = {
       check_mime_type = false,
     },
-    -- @TODO: Disable borders for now as a workaround
-    -- Related issue: https://github.com/nvim-telescope/telescope.nvim/issues/3436
-    -- border = false,
     mappings = {
       i = {
         -- We don't want to press ESC twice to exit in insert-mode
