@@ -1,3 +1,6 @@
+-- TODO: Packer is deprecated, but instead of installing the next "new" package
+-- manager I'm waiting for nvim v0.12.0 built-in support.
+--
 -- Bootstrap "packer" on new systems.
 local ensure_packer = function()
   local fn = vim.fn
@@ -60,7 +63,7 @@ return require('packer').startup(function()
   -- Highly extendable fuzzy finder over lists.
   use {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    tag = 'v0.2.0',
     requires = {
       'nvim-lua/plenary.nvim',
     },
