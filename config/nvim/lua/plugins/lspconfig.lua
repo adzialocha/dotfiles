@@ -75,13 +75,6 @@ vim.lsp.config['ts_ls'] = {
   flags = flags,
 }
 
--- svelte
-nvim_lsp.svelte.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = flags,
-}
-
 -- eslint
 vim.lsp.config['eslint'] = {
   on_attach = function(client, bufnr)
@@ -107,8 +100,8 @@ vim.lsp.config['pylsp'] = {
 }
 
 vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('eslint')
+-- vim.lsp.enable('ts_ls')
+-- vim.lsp.enable('eslint')
 
 -------------
 -- Styling --
