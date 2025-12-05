@@ -5,8 +5,8 @@ local layout_strategies = require('telescope.pickers.layout_strategies')
 local previewers = require("telescope.previewers")
 
 -- Custom layout with all titles removed
-layout_strategies.custom = function(picker, max_columns, max_lines, layout_config)
-  local layout = layout_strategies.horizontal(picker, max_columns, max_lines, layout_config)
+layout_strategies.custom = function(self, max_columns, max_lines, layout_config)
+  local layout = layout_strategies.horizontal(self, max_columns, max_lines, layout_config)
   layout.results.title = ''
   layout.prompt.title = ''
   layout.preview.title = ''
@@ -21,7 +21,8 @@ end
 
 telescope.setup {
   defaults = {
-    layout_strategy = 'custom',
+    -- TODO: This breaks something, and I'm not sure what.
+    -- layout_strategy = 'custom',
     buffer_previewer_maker = custom_previewer_maker,
     preview = {
       check_mime_type = false,
