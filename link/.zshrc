@@ -108,11 +108,11 @@ source_if_exists /usr/share/fzf/completion.zsh
 # Rust
 add_to_path $HOME/.cargo/bin
 
-# n
-export N_PREFIX=$HOME/.n
-add_to_path $N_PREFIX/bin
-
 # ==================
+
+# n
+# export N_PREFIX=$HOME/.n
+# add_to_path $N_PREFIX/bin
 
 # pyenv & pyenv-virtualenv
 # add_to_path $HOME/.pyenv/bin
