@@ -1,0 +1,25 @@
+{
+  "plugins": {
+    "lualine.nvim": {
+      "rev": "f5d2a8570f8b736ddb9bb4be504355bcd6e15ec8",
+      "src": "https://github.com/hoob3rt/lualine.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "cb5bc0b2b35a6d513e3298d285db81453e791f4f",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "telescope-fzf-native.nvim": {
+      "rev": "6fea601bd2b694c6f2ae08a6c6fab14930c60e2c",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "3333a52ff548ba0a68af6d8da1e54f9cd96e9179",
+      "src": "https://github.com/nvim-telescope/telescope.nvim",
+      "version": "'v0.2.1'"
+    }
+  }
+}

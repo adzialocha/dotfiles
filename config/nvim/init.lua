@@ -1,21 +1,9 @@
--- Initialize color scheme
-vim.cmd 'source ~/.config/nvim/theme.vim'
-
--- Alias commands
-vim.cmd 'source ~/.config/nvim/alias.vim'
-
--- General editor configurations
 require('basic')
-
--- Key bindings
+require('theme')
 require('keymaps')
-
--- Manage plugins via `Packer`
 require('plugins')
 
--- Custom plugin configurations
-require('plugins.cmp')
+-- Plugin configurations
 require('plugins.lspconfig')
 require('plugins.lualine')
 require('plugins.telescope')
-require('plugins.treesitter')

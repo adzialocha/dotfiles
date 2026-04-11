@@ -1,17 +1,7 @@
 local telescope = require('telescope')
 
 local actions = require('telescope.actions')
-local layout_strategies = require('telescope.pickers.layout_strategies')
 local previewers = require("telescope.previewers")
-
--- Custom layout with all titles removed
-layout_strategies.custom = function(self, max_columns, max_lines, layout_config)
-  local layout = layout_strategies.horizontal(self, max_columns, max_lines, layout_config)
-  layout.results.title = ''
-  layout.prompt.title = ''
-  layout.preview.title = ''
-  return layout
-end
 
 -- Custom previewer since we don't want syntax highlighting
 local custom_previewer_maker = function(filepath, bufnr, opts)
@@ -21,11 +11,13 @@ end
 
 telescope.setup {
   defaults = {
-    -- TODO: This breaks something, and I'm not sure what.
-    -- layout_strategy = 'custom',
+    results_title = false,
+    dynamic_preview_title = true,
+    prompt_title = false,
     buffer_previewer_maker = custom_previewer_maker,
     preview = {
       check_mime_type = false,
+      treesitter = false,
     },
     mappings = {
       i = {
@@ -49,4 +41,5 @@ telescope.setup {
   },
 }
 
+-- FZF sorter for telescope written in c
 telescope.load_extension('fzf')
