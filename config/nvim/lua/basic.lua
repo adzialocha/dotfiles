@@ -1,80 +1,54 @@
-local set = vim.opt
-
 -- Use system clipboard
-set.clipboard = 'unnamedplus'
-
--- UTF8 everywhere
-set.encoding = 'utf8'
-
--- Disable showmode as we have `lightline` for this (default)
-set.showmode = false
+vim.opt.clipboard = 'unnamedplus'
 
 -- Show line numbers
-set.number = true
+vim.opt.number = true
 
--- Reload automatically on file changes (default)
-set.autoread = true
-
--- Preserve state (undo, marks, etc) in non visible buffers
-set.hidden = true
-
--- Enable mouse support in all modes
-set.mouse = 'a'
-
--- Disable .swp and backup files
-set.swapfile = false
-set.backup = false
+-- Disable .swp files
+vim.opt.swapfile = false
 
 -- Always leave gutter open
-set.signcolumn = 'yes'
-
---
--- Color and syntax
---
-
--- Use dark theme
-set.background = 'dark'
-
--- Enable syntax highlight
-vim.cmd('syntax enable')
-
--- Since neovim 0.10.0 this is enabled by default
-set.termguicolors = false
-
---
--- Searching
---
-
--- Enable incremental search
-set.incsearch = true
+vim.opt.signcolumn = 'yes:1'
 
 -- Ignore the case during search
-set.smartcase = true
-set.ignorecase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
---
--- Indentation and display
---
+-- Use "cterm" attributes to force terminal colors
+vim.opt.termguicolors = false
 
 -- Set tab to two spaces
-set.tabstop = 2
-set.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Insert spaces for tabs
-set.expandtab = true
+vim.opt.expandtab = true
 
 -- Break long lines by word, not character
-set.linebreak = true
+vim.opt.linebreak = true
 
--- Make autoindent use same chars as previous line
-set.copyindent = true
+-- Make autoindent use same space as previous line
+vim.opt.copyindent = true
 
--- Rounded borders for all floating windows
--- vim.o.winborder = 'rounded'
+-- Scrolling behavior
+vim.opt.scroll = 4
+vim.opt.scrolloff = 15
 
---
--- Scrolling
---
+-- Show trailing whitespace
+vim.opt.list = true
+vim.opt.listchars = 'trail:.'
 
-set.scroll = 4
-set.scrolloff = 15
+-- Rounded borders everywhere
+vim.opt.winborder = "rounded"
+
+-- Native insert-mode completion
+-- o = omnifunc (language server)
+-- . = scan the current buffer (max. 3)
+vim.opt.complete = 'o,.^3'
+vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect', 'popup' }
+vim.opt.autocomplete = true
+vim.opt.autocompletedelay = 100
+
+-- Maximum number of items to show in the completion popup menu
+vim.opt.pumheight = 10
+vim.opt.pummaxwidth = 60

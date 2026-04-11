@@ -12,10 +12,12 @@ require('lualine').setup {
     lualine_c = {
       'filename',
       {
-        'lsp_progress',
-        display_components = { 'lsp_client_name' },
-        progress_enddelay = 0,
-        lsp_client_name_enddelay = 0,
+        'lsp_status',
+        symbols = {
+          spinner = { '∙∙∙' },
+          done = '',
+        },
+        show_name = false,
       },
     },
     lualine_x = {},
