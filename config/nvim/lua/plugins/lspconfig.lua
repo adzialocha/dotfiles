@@ -83,6 +83,8 @@ vim.lsp.config['rust_analyzer'] = {
 }
 
 vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('eslint')
+vim.lsp.enable('ts_ls')
 
 -------------
 -- Styling --
