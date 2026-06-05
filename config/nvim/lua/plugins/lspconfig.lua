@@ -40,6 +40,7 @@ vim.lsp.config['rust_analyzer'] = {
     ["rust-analyzer"] = {
       assist = {
         expressionFillDefault = "default",
+        preferSelf = true,
       },
       semanticHighlighting = {
         doc = {
@@ -66,6 +67,9 @@ vim.lsp.config['rust_analyzer'] = {
       imports = {
         merge = {
           glob = false,
+        },
+        granularity = {
+          group = "module",
         },
       },
       diagnostics = {
