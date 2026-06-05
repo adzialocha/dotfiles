@@ -5,21 +5,23 @@ end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
 
     -- Disable syntax highlighting as it looks ugly
     client.server_capabilities.semanticTokensProvider = nil
 
     -- Enable completion on LSP client attach
-    vim.lsp.completion.enable(true, client.id, bufnr, {
-      autotrigger = true,
-      convert = function(item)
-        return {
-          -- Remove parentheses from function/method completion items
-          abbr = item.label:gsub("%b()", "")
-        }
-      end,
-    })
+    if client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, ev.buf, {
+        autotrigger = true,
+        convert = function(item)
+          return {
+            -- Remove parentheses from function/method completion items
+            abbr = item.label:gsub("%b()", "")
+          }
+        end,
+      })
+    end
 
     -- Use [Enter] or [Ctrl-Y] to select an item from completion menu
     vim.keymap.set('i', '<cr>', function()
