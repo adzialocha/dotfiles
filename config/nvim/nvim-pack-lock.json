@@ -5,11 +5,7 @@
       "src": "https://github.com/hoob3rt/lualine.nvim"
     },
     "nvim-lspconfig": {
-<<<<<<< HEAD
-      "rev": "9573948c38bfabeec353ae7dd7d3ffec4c506a6b",
-=======
       "rev": "229b79051b380377664edc4cbd534930154921a1",
->>>>>>> 4ba468c (nvim: Update nvim-pack dependencies)
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "plenary.nvim": {
