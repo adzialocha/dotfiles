@@ -75,6 +75,8 @@ alias vim="nvim"
 alias l="ls -lah --group-directories-first"
 alias la="ls -lAhv --group-directories-first"
 alias ll="ls -lh --group-directories-first"
+alias ll="ls -lh --group-directories-first"
+alias ggg="git add --all && git commit -m '.'"
 
 # p2panda development directory shortcut
 alias panda=". panda"
