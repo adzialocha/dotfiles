@@ -15,11 +15,19 @@ general {
 }
 
 order += "wireless _first_"
+order += "battery all"
 order += "tztime local"
 
 wireless _first_ {
         format_up = "%quality %ip"
         format_down = ""
+}
+
+battery all {
+        format = "%percentage %remaining"
+        low_threshold = 10
+        threshold_type = percentage
+        integer_battery_capacity = true
 }
 
 tztime local {
