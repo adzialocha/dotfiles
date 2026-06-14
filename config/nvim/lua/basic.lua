@@ -46,8 +46,6 @@ vim.opt.winborder = "rounded"
 -- . = scan the current buffer (max. 3)
 vim.opt.complete = 'o,.^3'
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect', 'popup' }
--- vim.opt.autocomplete = true
--- vim.opt.autocompletedelay = 500
 
 -- Maximum number of items to show in the completion popup menu
 vim.opt.pumheight = 10

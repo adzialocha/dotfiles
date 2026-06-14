@@ -23,10 +23,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
     end
 
-    -- Use [Enter] or [Ctrl-Y] to select an item from completion menu
-    vim.keymap.set('i', '<cr>', function()
-      return pumvisible() and '<C-y>' or '<cr>'
-    end, { expr = true })
+    -- Use [Enter] or [Ctrl-Y] to select an item from completion menu.
+    -- Only confirm if menu is visible AND something is selected
+    vim.keymap.set('i', '<CR>', function()
+      if pumvisible() then
+        return '<C-y>'  -- Accept completion
+      else
+        return '<CR>'   -- Normal newline
+      end
+    end, { expr = true, buffer = ev.buf })
   end
 })
 
