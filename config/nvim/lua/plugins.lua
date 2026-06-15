@@ -28,6 +28,6 @@ vim.pack.add({
   -- Highly extendable fuzzy finder over lists.
   {
     src = gh('nvim-telescope/telescope.nvim'),
-    version = 'v0.2.1',
+    version = 'v0.2.2',
   },
 })
