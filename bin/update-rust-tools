@@ -3,13 +3,6 @@
 # update-rust-tools - Helper script to get the latest version of rust-analyzer,
 # installed cargo executables like wasm-pack and rustc
 
-echo "◆ Download latest rust-analyzer release"
-previous_version=$(rust-analyzer --version)
-mkdir -p ~/.local/bin
-curl --silent -L https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
-chmod +x ~/.local/bin/rust-analyzer
-echo "Updated $(rust-analyzer --version) successfully (was $previous_version before)."
-
 echo ""
 echo "◆ Update stable Rust toolchains"
 rustup update stable
@@ -17,7 +10,3 @@ rustup update stable
 echo ""
 echo "◆ Update installed cargo executables"
 cargo install-update -a
-
-# Clean up afterwards, some installer moves another `rust-analyzer` here, but
-# it is broken ("not installed for the toolchain" error)
-rm ~/.cargo/bin/rust-analyzer
