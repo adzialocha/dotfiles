@@ -30,5 +30,14 @@
   rebase = true
 [merge]
   log = true
+[rebase]
+  updateRefs = true
 [log]
   abbrevcommit = true
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
+[rerere]
+  enabled = true
+  autoUpdate = true
