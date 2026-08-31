@@ -5,7 +5,7 @@
       "src": "https://github.com/hoob3rt/lualine.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "dd1c9b802c943278179a5d819369cda085b79d45",
+      "rev": "16286347bdba1333c7d124d9de9fe6630731b2b2",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "plenary.nvim": {
