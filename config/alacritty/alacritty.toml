@@ -58,3 +58,8 @@ save_to_clipboard = true
 key = "Return"
 mods = "Control|Shift"
 action = "SpawnNewInstance"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
